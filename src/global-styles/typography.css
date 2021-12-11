@@ -1,0 +1,19 @@
+@import './fonts.css';
+
+/* Global fonts */
+
+.o-logo-font {
+    font-family: var(--fanzine-font);
+}
+
+.o-paragraph-font {}
+
+.o-heading-1 {}
+
+.o-heading-2 {}
+
+.o-heading-3 {}
+
+.o-heading-4 {}
+
+.o-button-txt {}
