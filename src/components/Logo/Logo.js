@@ -1,3 +1,5 @@
+import './Logo.css';
+
 import crimewineLogo from '../../assets/svgs/crimewine-logo.svg'
 
 export default function Logo() {

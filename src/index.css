@@ -1,14 +1,7 @@
 /* Global styles imported here */
-/* @import url('./global-styles/common.css'); */
+@import url('./global-styles/common.css');
 @import url('./global-styles/typography.css');
 /* @import url('./global-styles/fonts.css'); */
 @import url('./global-styles/colors.css');
 @import url('./global-styles/layouts.css');
 @import url('./global-styles/spacing.css');
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin    : 0;
-}
