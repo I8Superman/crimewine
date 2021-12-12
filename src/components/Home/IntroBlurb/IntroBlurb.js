@@ -1,3 +1,5 @@
+import './Introblurb.css';
+
 export default function IntroBlurb() {
     return (
         <div className="c-introblurb">

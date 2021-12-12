@@ -1,14 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import './App.css';
-import Logo from './components/Logo/Logo';
-import SideNav from './components/SideNav/SideNav';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Home from './components/Home/Home';
-import Nyheder from './components/Nyheder/Nyheder';
-import Vine from './components/Vine/Vine';
-import Om from './components/Om/Om';
-import Kontakt from './components/Kontakt/Kontakt';
 import KigForbi from './components/KigForbi/KigForbi';
+import Kontakt from './components/Kontakt/Kontakt';
+import Logo from './components/Logo/Logo';
+import Nyheder from './components/Nyheder/Nyheder';
+import Om from './components/Om/Om';
+import SideNav from './components/SideNav/SideNav';
+import Vine from './components/Vine/Vine';
 
 function App() {
   return (

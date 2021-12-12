@@ -1,0 +1,4 @@
+.o-background-video {
+    position: fixed;
+    z-index : -1;
+}
