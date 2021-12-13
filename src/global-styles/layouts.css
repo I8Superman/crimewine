@@ -1,0 +1,14 @@
+/* Grid layouts */
+
+:root {
+    /* Grid for different screen sizes */
+    --mobile-grid       : 30px repeat(11, 1fr) 30px;
+    --tablet-grid       : 30px repeat(11, 1fr) 30px;
+    --desktop-grid      : 30px repeat(11, 1fr) 30px;
+    --desktop-large-grid: 30px repeat(11, 1fr) 30px;
+
+    /* Margin for elems that can't be placed in grid */
+
+
+    /* Content placement in grid */
+}

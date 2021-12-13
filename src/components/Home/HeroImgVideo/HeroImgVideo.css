@@ -1,0 +1,25 @@
+.o-background-video__container {
+    height  : 100vh;
+    overflow: hidden;
+}
+
+.o-background-video {
+    position  : relative;
+    z-index   : -1;
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+    bottom    : 0;
+    right     : -5vw;
+}
+
+
+@media screen and (min-width: 480px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 1440px) {}

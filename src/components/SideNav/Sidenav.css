@@ -1,3 +1,38 @@
-.c-sidenav {
-    position: absolute;
+@media screen and (min-width: 480px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1024px) {
+    .c-side-nav__container {
+        position       : fixed;
+        height         : 100vh;
+        margin-left    : 50px;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+    }
+
+    .c-side-nav {
+        /* height         : 20rem; */
+        display           : flex;
+        flex-direction    : column;
+        /* justify-content: space-between; */
+    }
+
+    .c-side-nav__link {
+        text-decoration: none;
+        margin-top     : 2rem;
+    }
+
+    .c-side-nav__text {
+        font-family     : var(--tinos-font);
+        font-size       : 1.5rem;
+        color           : var(--white-bg-col);
+        background-color: var(--sepia-black-col);
+        padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
+    }
 }
+
+@media screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 1440px) {}

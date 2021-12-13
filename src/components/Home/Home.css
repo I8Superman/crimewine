@@ -1,11 +1,32 @@
-.o-background-video {
-    position  : fixed;
-    z-index   : -1;
-    width     : 100%;
-    height    : 100%;
-    object-fit: cover;
-    top       : 0;
-    right     : -5vw;
+.p-home {
+    /* display              : grid;
+    grid-template-columns: var(--desktop-grid); */
+    grid-column: 1 / end;
 }
 
-@media only screen and (min-width: 600px) {}
+/* .block1 {
+    
+    width                : 100vw;
+    height               : 100vh;
+    background-color     : chartreuse;
+    display              : grid;
+    grid-template-columns: var(--large-grid);
+}
+
+.gridblock1 {
+    border          : 3px black solid;
+    background-color: chocolate;
+    grid-column     : 2 / 5;
+    height          : 5vw;
+    margin-top      : 10vw;
+} */
+
+@media screen and (min-width: 480px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 1024px) {}
+
+@media screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 1440px) {}

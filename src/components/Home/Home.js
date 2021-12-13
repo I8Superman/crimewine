@@ -1,6 +1,6 @@
 import "./Home.css";
 
-import backgroundVideo from '../../assets/video/background-video.mp4';
+import HeroImgVideo from "./HeroImgVideo/HeroImgVideo";
 import IntroBlurb from "./IntroBlurb/IntroBlurb";
 import NewsWidget from "./NewsWidget/NewsWidget";
 import NewWine from "./NewWine/NewWine";
@@ -9,13 +9,17 @@ import NewWine from "./NewWine/NewWine";
 function Home() {
     return (
         <div className="p-home">
-            <NewsWidget />
-            <video className="o-background-video" playsInline autoPlay loop muted>
-                <source src={backgroundVideo} type="video/mp4" />
-            </video>
+            {/* <NewsWidget /> */}
+            <HeroImgVideo />
             <h1>Home page here</h1>
             <IntroBlurb />
             <NewWine />
+            <div className="block1">
+                <div className="gridblock1"></div>
+            </div>
+            <div className="block2">
+                <div className="gridblock2"></div>
+            </div>
         </div>
     );
 }
