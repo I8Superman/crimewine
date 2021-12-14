@@ -1,0 +1,20 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+.c-filters {
+
+    &__cat {
+        list-style-type: none;
+        color          : v.$dark-grey;
+        font-family    : v.$tinos-font;
+        margin-left    : 1rem;
+        margin-top     : 1rem;
+        line-height    : 1.8rem;
+
+        &__filter:hover {
+            transition: all 0.2s;
+            transform : scale(1.1);
+            cursor    : pointer;
+        }
+    }
+
+}

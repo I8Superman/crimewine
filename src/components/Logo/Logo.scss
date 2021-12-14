@@ -5,11 +5,11 @@
 @media screen and (min-width: 1024px) {
 
     .c-logo {
-        position   : fixed;
-        margin-left: 50px;
-        margin-top : 2rem;
-        width      : 35rem;
-        transition : all 0.5s;
+        position  : fixed;
+        left      : 50px;
+        top       : 2rem;
+        width     : 35rem;
+        transition: all 0.5s;
     }
 
     .c-logo--shrunk {
