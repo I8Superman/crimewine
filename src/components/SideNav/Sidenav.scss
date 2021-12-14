@@ -1,0 +1,33 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+@include v.desktop {
+
+    .c-side-nav__container {
+        position       : fixed;
+        height         : 100vh;
+        margin-left    : 50px;
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+    }
+
+    .c-side-nav {
+        /* height         : 20rem; */
+        display           : flex;
+        flex-direction    : column;
+        /* justify-content: space-between; */
+
+        &__link {
+            text-decoration: none;
+            margin-top     : 2rem;
+        }
+
+        &__text {
+            font-family     : v.$tinos-font;
+            font-size       : 1.2rem;
+            color           : v.$white-bg;
+            background-color: v.$sepia-black;
+            padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
+        }
+    }
+}

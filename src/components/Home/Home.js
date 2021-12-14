@@ -2,7 +2,7 @@ import "./Home.css";
 
 import HeroImgVideo from "./HeroImgVideo/HeroImgVideo";
 import IntroBlurb from "./IntroBlurb/IntroBlurb";
-import NewsWidget from "./NewsWidget/NewsWidget";
+// import NewsWidget from "./NewsWidget/NewsWidget";
 import NewWine from "./NewWine/NewWine";
 
 

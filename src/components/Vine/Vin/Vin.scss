@@ -1,0 +1,79 @@
+@use '../../../global-styles/forwarder.scss'as v;
+
+.c-vin {
+    // border           : 1px green solid;
+    // padding       : 0.25rem;
+    position      : relative;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+
+    &__img {
+        height       : 17rem;
+        margin-bottom: 1rem;
+    }
+
+    &__name {
+        position                 : absolute;
+        width                    : 100%;
+        // position              : relative;
+        top                      : 35%;
+        background-color         : v.$sepia-black;
+        color                    : white;
+        padding                  : 0.125rem 0.25rem 0.125rem 0.25rem;
+        text-align               : center;
+        font-family              : v.$tinos-font;
+        line-height              : 1.3rem;
+    }
+
+    &__data {
+        font-family  : v.$tinos-font;
+        color        : v.$dark-grey;
+        margin-bottom: 0.5rem;
+    }
+
+    &__price {
+        font-family  : v.$tinos-font;
+        margin-bottom: 1rem;
+    }
+
+    &__ctrls {
+        display              : grid;
+        grid-template-columns: 2rem 2fr 2rem 5fr;
+
+        &__minus,
+        &__plus {
+            border          : 1px v.$sepia-black solid;
+            background-color: white;
+            width           : 2rem;
+            height          : 2rem;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+
+            img {
+                width: 0.75rem;
+            }
+        }
+
+        &__input {
+            border       : none;
+            width        : 100%;
+            border-top   : 1px v.$sepia-black solid;
+            border-bottom: 1px v.$sepia-black solid;
+            text-align   : center;
+            font-family  : v.$tinos-font;
+            font-size    : 1rem;
+        }
+
+
+        &__add {
+            border          : 1px v.$sepia-black solid;
+            background-color: white;
+            height          : 2rem;
+            font-family     : v.$tinos-font;
+            font-size       : 1rem;
+            margin-left     : 0.5rem;
+        }
+    }
+}

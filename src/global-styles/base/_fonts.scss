@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@font-face {
+    font-family : 'Fanzine';
+    font-display: swap;
+    src         : url('../../assets/fonts/fanzine.woff') format('woff'),
+        url('../../assets/fonts/fanzine.woff2') format('woff2');
+    font-style: normal;
+}
+
+// :root {
+//     --fanzine-font: Fanzine;
+//     --tinos-font  : Tinos;
+//     /* italic small-caps normal 13px/150% Arial, Helvetica, sans-serif; */
+// }
+
+$fanzine-font: Fanzine,
+sans-serif;
+$tinos-font: Tinos,
+sans-serif;

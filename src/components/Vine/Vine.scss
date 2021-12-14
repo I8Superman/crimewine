@@ -1,0 +1,39 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+.p-vine {
+    width                : 100vw;
+    height               : 100vh;
+    display              : grid;
+    grid-template-columns: v.$desktop-grid;
+    grid-template-rows   : 5rem 6rem 1fr;
+    // gap: 1st value is row gap, 2nd is column gap
+    gap                  : 0 20px;
+    overflow-y           : hidden;
+}
+
+.c-producer-btns {
+    grid-column    : 4 / 13;
+    grid-row       : 2 / 3;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-between;
+}
+
+.c-producer-btn {
+    border          : none;
+    background-color: v.$white-bg;
+    font-family     : v.$tinos-font;
+    font-size       : 1rem;
+    height          : 3rem;
+    cursor          : pointer;
+}
+
+.c-products-container {
+    grid-column          : 4 / 13;
+    grid-row             : 3 / 4;
+    height               : 100%;
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap                  : 3rem;
+    overflow-y           : scroll;
+}
