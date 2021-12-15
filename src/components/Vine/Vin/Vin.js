@@ -1,6 +1,6 @@
 import './Vin.scss';
 
-import bottleImg from '../../../assets/images/wine-bottles/rose7.png'
+import bottleImg from '../../../assets/images/wine-bottles/cropped/hvid9.png'
 import minus from '../../../assets/svgs/minus.svg';
 import plus from '../../../assets/svgs/plus.svg';
 
