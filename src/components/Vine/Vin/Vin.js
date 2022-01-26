@@ -1,15 +1,19 @@
 import './Vin.scss';
 
-import bottleImg from '../../../assets/images/wine-bottles/cropped/hvid9.png'
+// import bottleImg from '../../../assets/images/wine-bottles/cropped/hvid9.png'
 import minus from '../../../assets/svgs/minus.svg';
 import plus from '../../../assets/svgs/plus.svg';
 
-export default function Vin() {
+export default function Vin({ bottleData }) {
 
+    console.log(bottleData);
+
+    console.log(bottleData.img)
+    // const bottleImg = `../../assets/images/wine-bottles/cropped/${bottleData.img}.png`;
 
     return (
         <div className="c-vin">
-            <img className="c-vin__img" src={bottleImg} alt="" />
+            <img className="c-vin__img" src={require(`../../../assets/images/wine-bottles/cropped/${bottleData.img}.png`).default} alt="" />
             <div className="c-vin__name">Müller-Thurgau Endinger Vulkanfelsen - trocken</div>
             <p className='c-vin__data'>Keller - 2020</p>
             <p className='c-vin__price'>89 DKK</p>

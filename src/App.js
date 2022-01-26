@@ -1,5 +1,6 @@
 import './App.scss';
 
+// import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import BasketIcon from './components/BasketIcon/BasketIcon';
@@ -13,8 +14,8 @@ import Om from './components/Om/Om';
 import SideNav from './components/SideNav/SideNav';
 import Vine from './components/Vine/Vine';
 
-
 function App() {
+
   return (
     <div className="c-app">
       <SideNav />

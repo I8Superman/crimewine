@@ -21,8 +21,13 @@
     }
 
     &__breadcrumbs {
-        display: flex;
+        display    : flex;
+        font-family: v.$tinos-font;
+        color      : v.$dark-grey;
 
+        p {
+            margin-right: 0.5rem;
+        }
     }
 
 

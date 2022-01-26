@@ -12,8 +12,8 @@ export default function Kurv() {
             <div className="c-kurv__breadcrumbs-and-order-btn">
                 <div className="c-kurv__breadcrumbs">
                     <p className='c-kurv__breadcrumbs__indkøbskurv'>Indkøbskurv</p>
-                    <p className='c-kurv__breadcrumbs__information'>> Information og forsendelse</p>
-                    <p className='c-kurv__breadcrumbs__betal'>> Godkend og betal</p>
+                    <p className='c-kurv__breadcrumbs__information'>{'> Information og forsendelse'}</p>
+                    <p className='c-kurv__breadcrumbs__betal'>{'> Godkend og betal'}</p>
                 </div>
                 <button className='c-kurv__summary__ordering__go-to__top order-button'>Til bestilling</button>
             </div>

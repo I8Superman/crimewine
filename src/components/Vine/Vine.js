@@ -1,8 +1,23 @@
 import './Vine.scss';
 
-import Vin from './Vin/Vin'
+import { useEffect, useState } from 'react';
+
+import vinData from '../../assets/sim-data/wineData'
+import Vin from './Vin/Vin';
 
 export default function Vine() {
+
+    const [allWines, setAllWines] = useState([]);
+
+    useEffect(() => {
+        setAllWines(vinData.data.wines)
+    }, []);
+
+    console.log(allWines);
+
+    const wineBottles = allWines.map((bottle, index) => {
+        return <Vin key={index} bottleData={bottle} />
+    })
 
     return (
         <div className="p-vine">
@@ -19,20 +34,7 @@ export default function Vine() {
                 <button className="c-producer-btn">Pix</button>
             </div>
             <div className="c-products-container">
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
-                <Vin />
+                {wineBottles}
             </div>
         </div>
     )
