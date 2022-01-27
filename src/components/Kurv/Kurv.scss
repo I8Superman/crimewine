@@ -1,0 +1,109 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+
+.c-kurv {
+    width                : 100vw;
+    height               : 100vh;
+    display              : grid;
+    grid-template-columns: v.$desktop-grid;
+    grid-template-rows   : 5rem 5rem 3rem 20rem 10rem;
+    gap                  : 0.5rem 20px;
+
+    &__breadcrumbs-and-order-btn {
+        // border         : 1px green solid;
+        grid-column    : 4 / 13;
+        grid-row       : 2;
+        height         : 3rem;
+        vertical-align : bottom;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
+    &__breadcrumbs {
+        display    : flex;
+        font-family: v.$tinos-font;
+        color      : v.$dark-grey;
+
+        p {
+            margin-right: 0.5rem;
+        }
+    }
+
+
+    &__headers {
+        border               : 1px black solid;
+        grid-column          : 4 / 13;
+        grid-row             : 3;
+        height               : 3rem;
+        display              : grid;
+        grid-template-columns: 28% 7% 20% 20% 15% 10%;
+        margin-bottom        : 1rem;
+
+        .c-kurv__header {
+            font-family    : v.$tinos-font;
+            font-size      : 1rem;
+            padding-left   : 0.5rem;
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+
+            &:nth-child(1) {
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    &__vare-container {
+        border     : 1px black solid;
+        grid-column: 4 / 13;
+        height     : 20rem;
+        grid-row   : 4 / 5;
+        overflow-y : scroll;
+    }
+
+    &__summary {
+        grid-column: 9 /13;
+        grid-row   : 5;
+        font-family: v.$tinos-font;
+        font-size  : 1rem;
+
+        &__amount,
+        &__tax,
+        &__total,
+        &__ordering {
+            display        : flex;
+            justify-content: space-between;
+            align-items    : center;
+            padding        : 0.5rem;
+            border-bottom  : 1px black solid;
+        }
+
+        &__ordering {
+            padding-right: 0;
+            border       : none;
+        }
+
+        &__ordering__accept {
+            display    : flex;
+            align-items: center;
+
+            img {
+                height     : 1rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    .order-button {
+        border             : none;
+        font-family        : v.$tinos-font;
+        color              : white;
+        // font-weight     : bold;
+        font-size          : 1rem;
+        background-color   : v.$sepia-black;
+        padding            : 0.5rem 1rem 0.5rem 1rem;
+    }
+
+
+}
