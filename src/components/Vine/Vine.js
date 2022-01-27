@@ -13,7 +13,7 @@ export default function Vine() {
         setAllWines(vinData.data.wines)
     }, []);
 
-    console.log(allWines);
+    // console.log(allWines);
 
     const wineBottles = allWines.map((bottle, index) => {
         return <Vin key={index} bottleData={bottle} />

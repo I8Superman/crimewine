@@ -6,18 +6,13 @@ import plus from '../../../assets/svgs/plus.svg';
 
 export default function Vin({ bottleData }) {
 
-    console.log(bottleData);
-
-    console.log(bottleData.img)
-    // const bottleImg = `../../assets/images/wine-bottles/cropped/${bottleData.img}.png`;
-
     return (
         <div className="c-vin">
             {/* <img className="c-vin__img" src={require(`../../../assets/images/wine-bottles/cropped/${bottleData.img}.png`).default} alt="" /> */}
             <img className="c-vin__img" src={`images/cropped/${bottleData.img}.png`} alt="" />
-            <div className="c-vin__name">Müller-Thurgau Endinger Vulkanfelsen - trocken</div>
-            <p className='c-vin__data'>Keller - 2020</p>
-            <p className='c-vin__price'>89 DKK</p>
+            <div className="c-vin__name">{bottleData.name}</div>
+            <p className='c-vin__data'>{bottleData.producer.short} - {bottleData.year}</p>
+            <p className='c-vin__price'>{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
             <div className='c-vin__ctrls'>
                 {/* <div className='c-vin__ctrls__adjust'> */}
                 <button className='c-vin__ctrls__minus'><img src={minus} alt="" /></button>
