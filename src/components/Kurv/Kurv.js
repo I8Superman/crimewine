@@ -1,12 +1,22 @@
 import './Kurv.scss';
 
+import { useContext, useState } from 'react';
+
 import dankort from '../../assets/images/payment-logos/logo-dankort.png';
 import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
 import mobilePay from '../../assets/images/payment-logos/logo-mobile-pay.png';
 import visa from '../../assets/images/payment-logos/logo-visa.png';
+import { BasketContext } from '../../contexts/BasketContext';
 import Vare from './Vare/Vare';
 
 export default function Kurv() {
+
+    const { basket } = useContext(BasketContext);
+
+    const winesInBasket = basket.map((wine) => {
+        return <Vare key={wine.id} basketWineData={wine} />
+    })
+
     return (
         <div className='c-kurv'>
             <div className="c-kurv__breadcrumbs-and-order-btn">
@@ -26,15 +36,7 @@ export default function Kurv() {
                 <div className="c-kurv__header">I alt</div>
             </div>
             <div className="c-kurv__vare-container">
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-
+                {winesInBasket}
             </div>
             <div className="c-kurv__summary">
                 <div className="c-kurv__summary__amount">

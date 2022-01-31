@@ -39,7 +39,7 @@ export default function Vin({ bottleData, addToBasketFunc }) {
                 <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
                 <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
                 <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
-                <button className='c-vin__ctrls__add' onClick={() => addToBasket(quantity, bottleData.id)}>Læg i kurv</button>
+                <button className='c-vin__ctrls__add' onClick={() => addToBasket(quantity, bottleData)}>Læg i kurv</button>
             </div>
         </div >
     )

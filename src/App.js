@@ -20,14 +20,13 @@ function App() {
 
   const [basket, setBasket] = useState([]);
 
-  function addToBasket(qty, id) { // Passed as props to Vine and Vin components
-    console.log(qty, id);
+  function addToBasket(qty, data) { // Passed as props to Vine and Vin components
+    console.log(qty, data);
     const addedItem = {
-      id: id,
+      ...data,
       qty: qty
     }
 
-    // const toBeAdded = { ...addedItem }
     setBasket(prevState => [...prevState, addedItem])
   }
 
