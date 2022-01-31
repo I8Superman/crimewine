@@ -1,24 +1,22 @@
 import './Vin.scss';
 
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 import minus from '../../../assets/svgs/minus.svg';
 import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 import plus from '../../../assets/svgs/plus.svg';
-import { BasketContext } from '../../../contexts/BasketContext';
 
-export default function Vin({ bottleData }) {
+export default function Vin({ bottleData, addToBasketFunc }) {
 
-    const { basket, setBasket } = useContext(BasketContext);
+    const addToBasket = addToBasketFunc;
     const [quantity, setQuantity] = useState(1);
 
-    function adjustQuantity(adjustment) {
+    function adjustQuantity(adjustment) { // Using the +/- buttons
         const newAmount = quantity + adjustment;
         setQuantity(newAmount);
     }
 
-    function manualAdjustQty(event) {
-
+    function manualAdjustQty(event) { // Writing it directly in the qty input field
         const textToNumber = Number(event.target.value);
         if (!Number.isNaN(textToNumber)) {
             setQuantity(textToNumber);
@@ -26,8 +24,6 @@ export default function Vin({ bottleData }) {
             console.log('That wasnt a number dude!')
         }
     }
-
-    console.log(quantity)
 
     return (
         <div className="c-vin">
@@ -40,10 +36,10 @@ export default function Vin({ bottleData }) {
             <p className='c-vin__price'>{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
             <div className='c-vin__ctrls'>
                 {/* <div className='c-vin__ctrls__adjust'> */}
-                <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity === 1}><img src={quantity === 1 ? minusDisabled : minus} alt="" /></button>
+                <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
                 <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
                 <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
-                <button className='c-vin__ctrls__add'>Læg i kurv</button>
+                <button className='c-vin__ctrls__add' onClick={() => addToBasket(quantity, bottleData.id)}>Læg i kurv</button>
             </div>
         </div >
     )

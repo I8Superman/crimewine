@@ -18,7 +18,20 @@ import { BasketContext } from './contexts/BasketContext';
 
 function App() {
 
-  const [basket, setBasket] = useState(0);
+  const [basket, setBasket] = useState([]);
+
+  function addToBasket(qty, id) { // Passed as props to Vine and Vin components
+    console.log(qty, id);
+    const addedItem = {
+      id: id,
+      qty: qty
+    }
+
+    // const toBeAdded = { ...addedItem }
+    setBasket(prevState => [...prevState, addedItem])
+  }
+
+  console.log(basket)
 
   return (
     <div className="c-app">
@@ -29,7 +42,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nyheder" element={<Nyheder />} />
-          <Route path="/vine" element={<Vine />} />
+          <Route path="/vine" element={<Vine addToBasketFunc={addToBasket} />} />
           <Route path="/om" element={<Om />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/kig-forbi" element={<KigForbi />} />

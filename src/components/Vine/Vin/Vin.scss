@@ -59,8 +59,7 @@
             justify-content : center;
 
             img {
-                width: 0.5rem;
-                fill : blue;
+                width: 0.6rem;
             }
         }
 
@@ -72,6 +71,10 @@
             text-align   : center;
             font-family  : v.$tinos-font;
             font-size    : 1rem;
+
+            &:focus {
+                outline: transparent;
+            }
         }
 
 

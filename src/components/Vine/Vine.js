@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import vinData from '../../assets/sim-data/wineData'
 import Vin from './Vin/Vin';
 
-export default function Vine() {
+export default function Vine(props) {
 
     const [allWines, setAllWines] = useState([]);
 
@@ -15,8 +15,8 @@ export default function Vine() {
 
     // console.log(allWines);
 
-    const wineBottles = allWines.map((bottle, index) => {
-        return <Vin key={index} bottleData={bottle} />
+    const wineBottles = allWines.map((bottle) => {
+        return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
     })
 
     return (
