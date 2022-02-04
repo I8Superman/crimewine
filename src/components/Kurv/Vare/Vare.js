@@ -43,17 +43,12 @@ export default function Vare(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantity]);
 
+    const nrOfBoxes = Math.floor(quantity / 6);
+    const nrOfBottles = quantity - (nrOfBoxes * 6);
+    const total = nrOfBoxes * thisWine.price.box + nrOfBottles * thisWine.price.bottle;
+    const discount = quantity * thisWine.price.bottle - total;
 
-    // function adjustBasket() { // Same as addToBasket in App.js, but updating the basket everytime the quantity is changed (also to get to use the context API :)
-
-    //     const updatedBasket = basket.map((wine) => {
-    //         if (wine.id === thisWine.id) {
-    //             wine.qty = quantity;
-    //         }
-    //         return wine;
-    //     });
-    //     setBasket(updatedBasket);
-    // }
+    console.log('Rendered')
 
     return (
         <div className='c-vare'>
@@ -74,8 +69,8 @@ export default function Vare(props) {
                     <button className='c-vare__adjust__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
                 </div>
             </div>
-            <div className='c-vare__discount o-col'>74,00 DKK</div>
-            <div className='c-vare__total o-col'>1.358,00 DKK</div>
+            <div className='c-vare__discount o-col'>{discount} DKK</div>
+            <div className='c-vare__total o-col'>{total} DKK</div>
         </div>
     )
 }

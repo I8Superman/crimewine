@@ -40,6 +40,7 @@ function App() {
     }
   }
 
+
   // console.log(basket)
   for (let wine = 0; wine < basket.length; wine++) {
     console.log(basket[wine].name, 'qty: ' + basket[wine].qty);
