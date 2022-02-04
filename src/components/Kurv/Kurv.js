@@ -1,12 +1,36 @@
 import './Kurv.scss';
 
+import { useContext, useEffect, useState } from 'react';
+
 import dankort from '../../assets/images/payment-logos/logo-dankort.png';
 import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
 import mobilePay from '../../assets/images/payment-logos/logo-mobile-pay.png';
 import visa from '../../assets/images/payment-logos/logo-visa.png';
+import { BasketContext } from '../../contexts/BasketContext';
 import Vare from './Vare/Vare';
 
 export default function Kurv() {
+
+    const { basket } = useContext(BasketContext);
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    const winesInBasket = basket.map((wine) => {
+        return <Vare key={wine.id} basketWineData={wine} />
+    })
+
+    useEffect(() => {
+        let runningTotal = 0;
+        basket.forEach((wine) => {
+            const nrOfBoxes = Math.floor(wine.qty / 6);
+            const nrOfBottles = wine.qty - (nrOfBoxes * 6);
+            const total = nrOfBoxes * wine.price.box + nrOfBottles * wine.price.bottle;
+            runningTotal = runningTotal + total;
+        });
+        setTotalPrice(runningTotal);
+    }, [basket]);
+
+    console.log('Rendered')
+
     return (
         <div className='c-kurv'>
             <div className="c-kurv__breadcrumbs-and-order-btn">
@@ -26,28 +50,20 @@ export default function Kurv() {
                 <div className="c-kurv__header">I alt</div>
             </div>
             <div className="c-kurv__vare-container">
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-                <Vare />
-
+                {winesInBasket}
             </div>
             <div className="c-kurv__summary">
                 <div className="c-kurv__summary__amount">
                     <p className="c-kurv__summary__amount__text">Samlet beløb:</p>
-                    <p className="c-kurv__summary__amount__number">2.145,00 DKK</p>
+                    <p className="c-kurv__summary__amount__number">{totalPrice} DKK</p>
                 </div>
                 <div className="c-kurv__summary__tax">
                     <p className="c-kurv__summary__tax__text">Heraf moms:</p>
-                    <p className="c-kurv__summary__tax__number">249,00 DKK</p>
+                    <p className="c-kurv__summary__tax__number">{(totalPrice * 0.25).toFixed(2)} DKK</p>
                 </div>
                 <div className="c-kurv__summary__total">
                     <p className="c-kurv__summary__total__text">Total:</p>
-                    <p className="c-kurv__summary__total__number">2.145,00 DKK</p>
+                    <p className="c-kurv__summary__total__number">{totalPrice} DKK</p>
                 </div>
                 <div className="c-kurv__summary__ordering">
                     <div className='c-kurv__summary__ordering__accept'>

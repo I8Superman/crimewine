@@ -44,9 +44,9 @@
     }
 
 
-    &__adjust-ctrl {
+    &__adjust {
         display              : grid;
-        grid-template-columns: 1.8rem 2fr 1.8rem 5fr;
+        grid-template-columns: 1.8rem 40% 1.8rem;
 
         &__minus,
         &__plus {
@@ -64,22 +64,11 @@
 
         &__input {
             border       : none;
-            width        : 3rem;
             border-top   : 1px v.$sepia-black solid;
             border-bottom: 1px v.$sepia-black solid;
             text-align   : center;
             font-family  : v.$tinos-font;
             font-size    : 1rem;
-        }
-
-
-        &__add {
-            border          : 1px v.$sepia-black solid;
-            background-color: white;
-            height          : 2rem;
-            font-family     : v.$tinos-font;
-            font-size       : 1rem;
-            margin-left     : 0.5rem;
         }
     }
 

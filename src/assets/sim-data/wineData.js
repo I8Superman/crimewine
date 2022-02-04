@@ -3,7 +3,7 @@ const vine = {
     "data": {
         "wines": [
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "1",
                 "name": "Müller-Thurgau Endinger Vulkanfelsen - trocken",
                 "img": "hvid1",
@@ -27,7 +27,7 @@ const vine = {
                 "notes": "NB: Literflaske"
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "2",
                 "name": "Müller-Thurgau trocken",
                 "img": "hvid2",
@@ -51,7 +51,7 @@ const vine = {
                 "notes": "NB: Literflaske"
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "3",
                 "name": "Müller-Thurgau Vom Löss",
                 "img": "hvid3",
@@ -75,7 +75,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "4",
                 "name": "Rivaner QbA trocken",
                 "img": "hvid4",
@@ -99,7 +99,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "5",
                 "name": "Weissburgunder Burkheimer, trocken (Crimewine I)",
                 "img": "hvid5",
@@ -123,7 +123,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "6",
                 "name": "Weissburgunder Burkheimer Feuerberg Haslen, Grosse Lage",
                 "img": "hvid6",
@@ -147,7 +147,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "7",
                 "name": "Weissburgunder Scherben",
                 "img": "hvid7",
@@ -171,7 +171,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "8",
                 "name": "Weissburgunder Burkheimer Feuerberg Erste Lage",
                 "img": "hvid8",
@@ -195,7 +195,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "9",
                 "name": "Weissburgunder 'Im Leh' Grosse Lage",
                 "img": "hvid9",
@@ -219,7 +219,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "10",
                 "name": "Weisser Burgunder Löss, Landwein trocken",
                 "img": "hvid10",
@@ -243,7 +243,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "11",
                 "name": "Weissburgunder Pulverbuck Erste Lage",
                 "img": "hvid11",
@@ -267,7 +267,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "12",
                 "name": "Weissburgunder 'Bis in die Puppen'",
                 "img": "hvid12",
@@ -291,7 +291,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "13",
                 "name": "Weissburgunder Vom Löss",
                 "img": "hvid13",
@@ -315,7 +315,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "14",
                 "name": "Grauburgunder Jechtinger Eichert Kabinett trocken (CrimeWine IV)",
                 "img": "hvid14",
@@ -339,7 +339,7 @@ const vine = {
                 "notes": "Vinfestivalens VINDERVIN BÅDE 2015 og 2016!!!"
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "15",
                 "name": "Grauburgunder Schlossberg Grosse Lage",
                 "img": "hvid15",
@@ -363,7 +363,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "16",
                 "name": "Grauburgunder Burkheimer Feuerberg Haslen Grosse Lage",
                 "img": "hvid16",
@@ -387,7 +387,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "17",
                 "name": "Grauburgunder Burkheimer Feuerberg Erste Lage",
                 "img": "hvid17",
@@ -411,7 +411,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "18",
                 "name": "Grauburgunder Burkheimer Feuerberg Erste Lage",
                 "img": "hvid18",
@@ -435,7 +435,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "19",
                 "name": "Grauburgunder Famose Schose",
                 "img": "hvid19",
@@ -459,7 +459,7 @@ const vine = {
                 "notes": null
             },
             {
-                "type": "hvid",
+                "type": "Hvidvin",
                 "id": "20",
                 "name": "Grauer Burgunder QbA trocken",
                 "img": "hvid20",
@@ -484,7 +484,7 @@ const vine = {
             },
             {
                 "id": "21",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Grauer Burgunder QbA trocken",
                 "img": "hvid21",
                 "year": 2018,
@@ -508,7 +508,7 @@ const vine = {
             },
             {
                 "id": "22",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Chardonnay - SE - trocken",
                 "img": "hvid22",
                 "year": 2018,
@@ -532,7 +532,7 @@ const vine = {
             },
             {
                 "id": "23",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Chardonnay & Chardonnay trocken",
                 "img": "hvid1",
                 "year": 2019,
@@ -556,7 +556,7 @@ const vine = {
             },
             {
                 "id": "24",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Chardonnay Kirchberg GG",
                 "img": "hvid2",
                 "year": 2018,
@@ -580,7 +580,7 @@ const vine = {
             },
             {
                 "id": "25",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Pinot Noir, Blanc de noir, Steingrüble trocken",
                 "img": "hvid3",
                 "year": 2020,
@@ -604,7 +604,7 @@ const vine = {
             },
             {
                 "id": "26",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Blanc de Pinot Noir trocken",
                 "img": "hvid4",
                 "year": 2020,
@@ -628,7 +628,7 @@ const vine = {
             },
             {
                 "id": "27",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Badenheimer Riesling trocken",
                 "img": "hvid5",
                 "year": 2020,
@@ -652,7 +652,7 @@ const vine = {
             },
             {
                 "id": "28",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Riesling Siefersheimer Goldenes Horn",
                 "img": "hvid6",
                 "year": 2020,
@@ -676,7 +676,7 @@ const vine = {
             },
             {
                 "id": "29",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Riesling Wöllsteiner Äffchen trocken",
                 "img": "hvid7",
                 "year": 2020,
@@ -700,7 +700,7 @@ const vine = {
             },
             {
                 "id": "30",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Grüner Veltliner Lössterrassen",
                 "img": "hvid8",
                 "year": 2019,
@@ -724,7 +724,7 @@ const vine = {
             },
             {
                 "id": "31",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Grüner Veltliner Scheiben",
                 "img": "hvid9",
                 "year": 2017,
@@ -748,7 +748,7 @@ const vine = {
             },
             {
                 "id": "32",
-                "type": "hvid",
+                "type": "Hvidvin",
                 "name": "Roter Veltliner Mitterweg",
                 "img": "hvid10",
                 "year": 2018,
@@ -772,7 +772,7 @@ const vine = {
             },
             {
                 "id": "33",
-                "type": "rose",
+                "type": "Rose",
                 "name": "Rosé Burkheimer Feuerberg Kabinett trocken (Crimewine II)",
                 "img": "rose1",
                 "year": 2020,
@@ -796,7 +796,7 @@ const vine = {
             },
             {
                 "id": "34",
-                "type": "rose",
+                "type": "Rose",
                 "name": "Burkheimer Schlossgarten Rosé Erste Lage",
                 "img": "rose2",
                 "year": 2020,
@@ -820,7 +820,7 @@ const vine = {
             },
             {
                 "id": "35",
-                "type": "rose",
+                "type": "Rose",
                 "name": "Blauer Spätburgunder Rosé 'Chaiselongue' Magnum",
                 "img": "rose3",
                 "year": 2019,
@@ -844,7 +844,7 @@ const vine = {
             },
             {
                 "id": "36",
-                "type": "rose",
+                "type": "Rose",
                 "name": "Blauer Spätburgunder 'Mittenmang' Rosé",
                 "img": "rose4",
                 "year": 2019,
@@ -868,7 +868,7 @@ const vine = {
             },
             {
                 "id": "37",
-                "type": "rose",
+                "type": "Rose",
                 "name": "Graues B - Famose Schose à la Pink",
                 "img": "rose5",
                 "year": 2019,
@@ -892,7 +892,7 @@ const vine = {
             },
             {
                 "id": "38",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Ölberg Auslese trocken",
                 "img": "roed1",
                 "year": 2015,
@@ -916,7 +916,7 @@ const vine = {
             },
             {
                 "id": "39",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Baden Pinot Noir trocken",
                 "img": "roed2",
                 "year": 2018,
@@ -940,7 +940,7 @@ const vine = {
             },
             {
                 "id": "40",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Steingrüble Spätburgunder trocken Selection QbA",
                 "img": "roed3",
                 "year": 2018,
@@ -964,7 +964,7 @@ const vine = {
             },
             {
                 "id": "41",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Steingrüble Auslese trocken Selection",
                 "img": "roed4",
                 "year": 2018,
@@ -988,7 +988,7 @@ const vine = {
             },
             {
                 "id": "42",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Steingrüble Spätlese trocken",
                 "img": "roed5",
                 "year": 2018,
@@ -1012,7 +1012,7 @@ const vine = {
             },
             {
                 "id": "43",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Steingrüble Spätlese trocken",
                 "img": "roed6",
                 "year": 2018,
@@ -1036,7 +1036,7 @@ const vine = {
             },
             {
                 "id": "44",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder von Löss",
                 "img": "roed7",
                 "year": 2016,
@@ -1060,7 +1060,7 @@ const vine = {
             },
             {
                 "id": "45",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Steinriese",
                 "img": "roed8",
                 "year": 2018,
@@ -1084,7 +1084,7 @@ const vine = {
             },
             {
                 "id": "46",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder QbA trocken (Crimewine III)",
                 "img": "roed9",
                 "year": 2016,
@@ -1108,7 +1108,7 @@ const vine = {
             },
             {
                 "id": "47",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Jechtinger Eichert Erste Lage",
                 "img": "roed10",
                 "year": 2016,
@@ -1132,7 +1132,7 @@ const vine = {
             },
             {
                 "id": "48",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Burkheimer Feuerberg - Kesselberg, Grosse Lage",
                 "img": "roed12",
                 "year": 2016,
@@ -1156,7 +1156,7 @@ const vine = {
             },
             {
                 "id": "49",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Eichberg Grosse Lage",
                 "img": "roed11",
                 "year": 2017,
@@ -1180,7 +1180,7 @@ const vine = {
             },
             {
                 "id": "50",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Kirchberg Grosse Lage",
                 "img": "roed12",
                 "year": 2017,
@@ -1204,7 +1204,7 @@ const vine = {
             },
             {
                 "id": "51",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Schlossberg Grosse Lage",
                 "img": "roed13",
                 "year": 2017,
@@ -1228,7 +1228,7 @@ const vine = {
             },
             {
                 "id": "52",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Enselberg Unfiltriert GG",
                 "img": "roed1",
                 "year": 2017,
@@ -1252,7 +1252,7 @@ const vine = {
             },
             {
                 "id": "53",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Spätburgunder Prestige trocken unfiltriert",
                 "img": "roed2",
                 "year": 2019,
@@ -1276,7 +1276,7 @@ const vine = {
             },
             {
                 "id": "54",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Cabernet Sauvignon Isteiner",
                 "img": "roed3",
                 "year": 2019,
@@ -1300,7 +1300,7 @@ const vine = {
             },
             {
                 "id": "55",
-                "type": "roedvin",
+                "type": "Roedvin",
                 "name": "Limberg XV barrique",
                 "img": "roed4",
                 "year": 2015,
@@ -1324,7 +1324,7 @@ const vine = {
             },
             {
                 "id": "56",
-                "type": "sekt1",
+                "type": "Sekt",
                 "name": "Pinot Extra Brut, Baden Sekt bA",
                 "img": "sekt1",
                 "year": 2016,
@@ -1348,7 +1348,7 @@ const vine = {
             },
             {
                 "id": "57",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "Petnat Petillant Naturel",
                 "img": "sekt2",
                 "year": 2019,
@@ -1372,7 +1372,7 @@ const vine = {
             },
             {
                 "id": "58",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "Pinot Rosé Brut",
                 "img": "sekt3",
                 "year": 2015,
@@ -1396,7 +1396,7 @@ const vine = {
             },
             {
                 "id": "59",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "Crémant Baden Sekt Brut",
                 "img": "sekt4",
                 "year": 2018,
@@ -1420,7 +1420,7 @@ const vine = {
             },
             {
                 "id": "60",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "What the Fogt, prosecco rosé trocken",
                 "img": "sekt5",
                 "year": 2019,
@@ -1444,7 +1444,7 @@ const vine = {
             },
             {
                 "id": "61",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "Crémant Brut Nature",
                 "img": "sekt6",
                 "year": 2018,
@@ -1468,7 +1468,7 @@ const vine = {
             },
             {
                 "id": "62",
-                "type": "sekt",
+                "type": "Sekt",
                 "name": "Chardonnay Sekt trocken",
                 "img": "sekt7",
                 "year": 2018,
@@ -1492,7 +1492,7 @@ const vine = {
             },
             {
                 "id": "63",
-                "type": "dessertvin",
+                "type": "Dessertvin",
                 "name": "Spätburgunder Weissherbst Beerenauslese",
                 "img": "dessert1",
                 "year": 2011,
@@ -1516,7 +1516,7 @@ const vine = {
             },
             {
                 "id": "64",
-                "type": "dessertvin",
+                "type": "Dessertvin",
                 "name": "Spätburgunder Weissherbst Beerenauslese",
                 "img": "dessert2",
                 "year": 2011,
@@ -1540,7 +1540,7 @@ const vine = {
             },
             {
                 "id": "65",
-                "type": "dessertvin",
+                "type": "Dessertvin",
                 "name": "Sölberg Scheurebe Auslese",
                 "img": "hvid5",
                 "year": 2017,
@@ -1564,7 +1564,7 @@ const vine = {
             },
             {
                 "id": "66",
-                "type": "dessertvin",
+                "type": "Dessertvin",
                 "name": "Huxelrebe Auslese",
                 "img": "hvid8",
                 "year": 2017,
