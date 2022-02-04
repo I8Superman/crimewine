@@ -1,6 +1,6 @@
 import './Kurv.scss';
 
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
 import dankort from '../../assets/images/payment-logos/logo-dankort.png';
 import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
@@ -17,6 +17,8 @@ export default function Kurv() {
         return <Vare key={wine.id} basketWineData={wine} />
     })
 
+    // console.log('Rendered')
+
     return (
         <div className='c-kurv'>
             <div className="c-kurv__breadcrumbs-and-order-btn">
@@ -25,6 +27,7 @@ export default function Kurv() {
                     <p className='c-kurv__breadcrumbs__information'>{'> Information og forsendelse'}</p>
                     <p className='c-kurv__breadcrumbs__betal'>{'> Godkend og betal'}</p>
                 </div>
+                <button className='c-kurv__summary__ordering__go-to__top order-button'>Opdater kurv</button>
                 <button className='c-kurv__summary__ordering__go-to__top order-button'>Til bestilling</button>
             </div>
             <div className='c-kurv__headers'>

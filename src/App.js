@@ -21,16 +21,29 @@ function App() {
   const [basket, setBasket] = useState([]);
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
-    console.log(qty, data);
-    const addedItem = {
-      ...data,
-      qty: qty
-    }
 
-    setBasket(prevState => [...prevState, addedItem])
+    const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
+    if (alreadyInBasket === -1) {
+      const addedItem = {
+        ...data,
+        qty: qty
+      }
+      setBasket(prevState => [...prevState, addedItem])
+    } else {
+      const updatedBasket = basket.map((wine) => {
+        if (wine.id === data.id) {
+          wine.qty += qty;
+        }
+        return wine;
+      });
+      setBasket(updatedBasket);
+    }
   }
 
-  console.log(basket)
+  // console.log(basket)
+  for (let wine = 0; wine < basket.length; wine++) {
+    console.log(basket[wine].name, 'qty: ' + basket[wine].qty);
+  }
 
   return (
     <div className="c-app">

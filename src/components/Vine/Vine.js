@@ -19,6 +19,8 @@ export default function Vine(props) {
         return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
     })
 
+    // console.log('Rendered')
+
     return (
         <div className="p-vine">
             <div className="c-producer-btns">

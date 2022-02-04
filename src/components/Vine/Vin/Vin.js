@@ -18,12 +18,19 @@ export default function Vin({ bottleData, addToBasketFunc }) {
 
     function manualAdjustQty(event) { // Writing it directly in the qty input field
         const textToNumber = Number(event.target.value);
-        if (!Number.isNaN(textToNumber)) {
+        if (!Number.isNaN(textToNumber)) { // Check is pressed key is (not not) a number
             setQuantity(textToNumber);
         } else {
-            console.log('That wasnt a number dude!')
+            alert('That wasnt a number dude!')
         }
     }
+
+    function laegIKurv() {
+        addToBasket(quantity, bottleData);
+        setQuantity(1); // Resets qty to 1, so previous numbers don't linger
+    }
+
+    // console.log('Rendered')
 
     return (
         <div className="c-vin">
@@ -39,7 +46,7 @@ export default function Vin({ bottleData, addToBasketFunc }) {
                 <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
                 <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
                 <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
-                <button className='c-vin__ctrls__add' onClick={() => addToBasket(quantity, bottleData)}>Læg i kurv</button>
+                <button className='c-vin__ctrls__add' onClick={() => laegIKurv()}>Læg i kurv</button>
             </div>
         </div >
     )
