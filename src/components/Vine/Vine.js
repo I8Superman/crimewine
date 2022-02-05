@@ -8,61 +8,20 @@ import Vin from './Vin/Vin';
 export default function Vine(props) {
 
     const [allWines, setAllWines] = useState([]);
-    // const [sorting, setSorting] = useState('');
-    // const [filters, setFilters] = useState({
-    //     type: {
-    //         alle: true,
-    //         hvid: false,
-    //         roed: true,
-    //         rose: true,
-    //         dessert: true,
-    //         sekt: true
-    //     },
-    //     producent: {
-    //         alle: true,
-    //         keller: true,
-    //         hoefflin: true,
-    //         bercher: true,
-    //         konigsschaffhausen: true,
-    //         fogt: true,
-    //         schumann: true,
-    //         franzkeller: true,
-    //     }
-    // });
-
-    // function toggleFilter(e) {
-    //     let key = e.target.dataset.key;
-    //     let subkey = e.target.dataset.subkey;
-    //     setFilters(prevFilters => {
-    //         return { // Jesus! Setting state on nested keys is a nightmare!
-    //             ...prevFilters,
-    //             [key]: {
-    //                 ...prevFilters[key],
-    //                 [subkey]: !prevFilters[key][subkey]
-    //             }
-    //         }
-    //     });
-    // }
 
     useEffect(() => { // Getting the 'data'
         // console.log('Setting ALL wines')
         setAllWines(vinData.data.wines);
     }, []);
 
-    // useEffect(() => {
-    //     setFilters(prevFilters => {
-    //         return {
-    //             ...prevFilters,
-    //             type: props.navFilters.type
-    //         }
-    //     });
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
-
+    // FILTERING & SORTING: (based on the passed down filters obj from App.js)
+    // Some shorthands:
     const filters = props.filters;
     const toggleFilter = props.toggleFilter;
+    // Sorting variables:
+    const sortType = filters.sort;
+    const sortDir = filters.sortDir;
 
-    // FILTERING: (based on the passed down filters obj from App.js)
     const appliedFilters = allWines
         .filter(wine =>
             (filters.type.hvid && wine.type === "Hvidvin") ||
@@ -81,6 +40,13 @@ export default function Vine(props) {
             (filters.producent.schumann && wine.producer.short === "Schumann") ||
             (filters.producent.franzkeller && wine.producer.short === "Franz Keller")
         )
+        .sort(function (a, b) {
+            if (a[sortType] < b[sortType]) {
+                return sortDir === 'asc' ? 1 : -1;
+            } else {
+                return sortDir === 'asc' ? -1 : 1;
+            }
+        });
 
     const wineBottles = appliedFilters.map((bottle) => {
         return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
@@ -88,13 +54,13 @@ export default function Vine(props) {
 
     // console.log(allWines);
     // console.log(filters.type);
-    console.log(filters);
+    // console.log(filters);
 
     return (
         <div className="p-vine">
             <div className="c-producer-btns">
                 {/* These should be generated based on the producer values in the data */}
-                <button className={filters.producent.alle ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="alle" onClick={e => toggleFilter(e)}>{filters.producent.alle ? 'Fravælg alle' : 'Vælg alle'}</button>
+                <button className={filters.producent.alle ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="alle" onClick={e => toggleFilter(e)}>{filters.producent.alle ? 'Fravælg alle' : 'Alle vingårde'}</button>
                 <button className={filters.producent.keller ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="keller" onClick={e => toggleFilter(e)}>Keller</button>
                 <button className={filters.producent.hoefflin ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="hoefflin" onClick={e => toggleFilter(e)}>Höfflin</button>
                 <button className={filters.producent.bercher ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="bercher" onClick={e => toggleFilter(e)}>Bercher</button>

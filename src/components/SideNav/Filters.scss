@@ -13,13 +13,25 @@
         &__filter {
 
             &:hover {
-                transition: all 0.2s;
+                transition: transform 0.1s;
                 transform : scale(1.1);
                 cursor    : pointer;
             }
 
             &--selected {
                 color: v.$sepia-black;
+
+                img {
+                    width      : 0.8rem;
+                    display    : inline-block;
+                    margin-left: 0.3rem;
+                }
+
+                &:hover {
+                    transition: transform 0.1s;
+                    transform : scale(1.1);
+                    cursor    : pointer;
+                }
             }
         }
     }

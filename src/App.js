@@ -37,18 +37,10 @@ function App() {
       fogt: true,
       schumann: true,
       franzkeller: true,
-    }
+    },
+    sort: '',
+    sortDir: 'asc'
   });
-  // const [navFilters, setNavFilters] = useState({
-  //   type: {
-  //     alle: true,
-  //     hvid: false,
-  //     roed: true,
-  //     rose: true,
-  //     dessert: true,
-  //     sekt: true
-  //   }
-  // });
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
     const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
@@ -69,40 +61,79 @@ function App() {
     }
   }
 
+  // The ONE and ONLY super filter (and sort!) function!
   function toggleFilter(e) {
     let key = e.target.dataset.key;
     let subkey = e.target.dataset.subkey;
-    setFilters(prevFilters => {
-      return { // Jesus! Setting state on nested keys is a nightmare!
-        ...prevFilters,
-        [key]: {
-          ...prevFilters[key],
-          [subkey]: !prevFilters[key][subkey]
-        }
-      }
-    });
-  }
-  // function toggleNavFilter(e) {
-  //   console.log('NavFilter toggled')
-  //   // let key = e.target.dataset.key;
-  //   let subkey = e.target.dataset.subkey;
+    console.log('key = ' + key, 'subkey = ' + subkey)
+    // Handles the sorting values of the filters obj
+    if (key === 'sort') {
+      console.log('Were sorting things out!')
+      const currentSort = filters.sort;
+      const currentSortDir = filters.sortDir;
 
-  //   setNavFilters(prevNavFilters => {
-  //     return {
-  //       ...prevNavFilters,
-  //       type: {
-  //         ...prevNavFilters.type,
-  //         [subkey]: !prevNavFilters.type[subkey]
-  //       }
-  //     }
-  //   });
-  // }
+      if (subkey === currentSort && currentSortDir === 'asc') {
+        setFilters(prevFilters => {
+          return {
+            ...prevFilters,
+            sortDir: 'desc'
+          }
+        });
+      } else if (subkey === currentSort && currentSortDir === 'desc') {
+        setFilters(prevFilters => {
+          return {
+            ...prevFilters,
+            sort: ''
+          }
+        });
+      } else {
+        setFilters(prevFilters => {
+          return {
+            ...prevFilters,
+            sort: subkey,
+            sortDir: 'asc'
+          }
+        });
+      }
+      // Handles the filtering values of the filters obj
+    } else if (subkey === 'alle' && filters[key].alle) { // Set all type or producent to false
+      let tempObj = filters[key]; // Temp obj to manipulate/mutate
+      Object.keys(tempObj).forEach(p => tempObj[p] = false) // Loop through all keys and change their value to false
+      setFilters(prevFilters => {
+        return {
+          ...prevFilters,
+          [key]: tempObj // Change the filters state with temp obj
+        }
+      });
+    } else if (subkey === 'alle' && filters[key].alle === false) { // Set all type or producent to true
+      let tempObj = filters[key]; // Temp obj to manipulate/mutate
+      console.log(tempObj)
+      Object.keys(tempObj).forEach(p => tempObj[p] = true) // Loop through all keys and change their value to true
+      setFilters(prevFilters => {
+        return {
+          ...prevFilters,
+          [key]: tempObj // Change the filters state with temp obj
+        }
+      });
+    } else { // Toggle individual filter to true/false
+      setFilters(prevFilters => {
+        return { // Jesus! Setting state on nested keys is a nightmare!
+          ...prevFilters,
+          [key]: {
+            ...prevFilters[key],
+            [subkey]: !prevFilters[key][subkey]
+          }
+        }
+      });
+    }
+  }
 
   console.log(filters)
+
   return (
     <div className="c-app">
       <BasketContext.Provider value={{ basket, setBasket }}>
-        <SideNav toggleFilter={toggleFilter} />
+        <SideNav toggleFilter={toggleFilter} filters={filters} />
         <Logo />
         <BasketIcon />
         <Routes>
