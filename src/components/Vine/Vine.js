@@ -63,21 +63,24 @@ export default function Vine(props) {
     const toggleFilter = props.toggleFilter;
 
     // FILTERING: (based on the passed down filters obj from App.js)
-    const appliedFilters = allWines.filter(wine =>
-        (filters.type.hvid && wine.type === "Hvidvin") ||
-        (filters.type.roed && wine.type === "Roedvin") ||
-        (filters.type.rose && wine.type === "Rose") ||
-        (filters.type.dessert && wine.type === "Dessertvin") ||
-        (filters.type.sekt && wine.type === "Sekt") ||
-        (filters.producent.keller && wine.producer.short === "Keller") ||
-        (filters.producent.hoefflin && wine.producer.short === "Höfflin") ||
-        (filters.producent.bercher && wine.producer.short === "Bercher") ||
-        (filters.producent.konigsschaffhausen && wine.producer.short === "Königschaffhausen") ||
-        (filters.producent.fogt && wine.producer.short === "Fogt") ||
-        (filters.producent.klotz && wine.producer.short === "Klotz") ||
-        (filters.producent.schumann && wine.producer.short === "Schumann") ||
-        (filters.producent.franzkeller && wine.producer.short === "Franz Keller")
-    )
+    const appliedFilters = allWines
+        .filter(wine =>
+            (filters.type.hvid && wine.type === "Hvidvin") ||
+            (filters.type.roed && wine.type === "Roedvin") ||
+            (filters.type.rose && wine.type === "Rose") ||
+            (filters.type.dessert && wine.type === "Dessertvin") ||
+            (filters.type.sekt && wine.type === "Sekt")
+        )
+        .filter(wine =>
+            (filters.producent.keller && wine.producer.short === "Keller") ||
+            (filters.producent.hoefflin && wine.producer.short === "Höfflin") ||
+            (filters.producent.bercher && wine.producer.short === "Bercher") ||
+            (filters.producent.konigsschaffhausen && wine.producer.short === "Königschaffhausen") ||
+            (filters.producent.fogt && wine.producer.short === "Fogt") ||
+            (filters.producent.klotz && wine.producer.short === "Klotz") ||
+            (filters.producent.schumann && wine.producer.short === "Schumann") ||
+            (filters.producent.franzkeller && wine.producer.short === "Franz Keller")
+        )
 
     const wineBottles = appliedFilters.map((bottle) => {
         return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
