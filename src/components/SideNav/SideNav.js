@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import Filters from './Filters';
 
-export default function SideNav() {
+export default function SideNav(props) {
 
     const location = useLocation();
 
@@ -16,7 +16,7 @@ export default function SideNav() {
             <nav className='c-side-nav'>
                 <Link className='c-side-nav__link' to="/nyheder"><span className='c-side-nav__text'>Nyheder</span></Link>
                 <Link className='c-side-nav__link' to="/vine"><span className='c-side-nav__text'>Vine</span></Link>
-                {location.pathname === '/vine' && <Filters />}
+                {location.pathname === '/vine' && <Filters toggleNavFilter={props.toggleNavFilter} />}
                 <Link className='c-side-nav__link' to="/om"><span className='c-side-nav__text'>Om</span></Link>
                 <Link className='c-side-nav__link' to="/kontakt"><span className='c-side-nav__text'>Kontakt</span></Link>
                 <Link className='c-side-nav__link' to="/kig-forbi"><span className='c-side-nav__text'>Kig forbi</span></Link>
