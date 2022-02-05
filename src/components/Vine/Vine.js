@@ -9,62 +9,66 @@ export default function Vine(props) {
 
     const [allWines, setAllWines] = useState([]);
     // const [sorting, setSorting] = useState('');
-    const [filters, setFilters] = useState({
-        type: {
-            alle: true,
-            hvid: false,
-            roed: true,
-            rose: true,
-            dessert: true,
-            sekt: true
-        },
-        producent: {
-            alle: true,
-            keller: true,
-            hoefflin: true,
-            bercher: true,
-            konigsschaffhausen: true,
-            fogt: true,
-            schumann: true,
-            franzkeller: true,
-        }
-    });
+    // const [filters, setFilters] = useState({
+    //     type: {
+    //         alle: true,
+    //         hvid: false,
+    //         roed: true,
+    //         rose: true,
+    //         dessert: true,
+    //         sekt: true
+    //     },
+    //     producent: {
+    //         alle: true,
+    //         keller: true,
+    //         hoefflin: true,
+    //         bercher: true,
+    //         konigsschaffhausen: true,
+    //         fogt: true,
+    //         schumann: true,
+    //         franzkeller: true,
+    //     }
+    // });
 
-    function toggleFilter(e) {
-        let key = e.target.dataset.key;
-        let subkey = e.target.dataset.subkey;
-        setFilters(prevFilters => {
-            return { // Jesus! Setting state on nested keys is a nightmare!
-                ...prevFilters,
-                [key]: {
-                    ...prevFilters[key],
-                    [subkey]: !prevFilters[key][subkey]
-                }
-            }
-        });
-    }
+    // function toggleFilter(e) {
+    //     let key = e.target.dataset.key;
+    //     let subkey = e.target.dataset.subkey;
+    //     setFilters(prevFilters => {
+    //         return { // Jesus! Setting state on nested keys is a nightmare!
+    //             ...prevFilters,
+    //             [key]: {
+    //                 ...prevFilters[key],
+    //                 [subkey]: !prevFilters[key][subkey]
+    //             }
+    //         }
+    //     });
+    // }
 
     useEffect(() => { // Getting the 'data'
         // console.log('Setting ALL wines')
         setAllWines(vinData.data.wines);
     }, []);
 
-    useEffect(() => {
-        setFilters(prevFilters => {
-            return {
-                ...prevFilters,
-                type: props.navFilters.type
-            }
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     setFilters(prevFilters => {
+    //         return {
+    //             ...prevFilters,
+    //             type: props.navFilters.type
+    //         }
+    //     });
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
+    const filters = props.filters;
+    const toggleFilter = props.toggleFilter;
+
+    // FILTERING: (based on the passed down filters obj from App.js)
     const appliedFilters = allWines.filter(wine =>
-        // (filters.type.hvid && wine.type === "Hvid") ||
-        // (filters.type.roed && wine.type === "Roed") ||
-        // (filters.type.rose && wine.type === "Rose") ||
-        // (filters.type.dessert && wine.type === "Dessertvin") ||
-        // (filters.type.sekt && wine.type === "Sekt") ||
+        (filters.type.hvid && wine.type === "Hvidvin") ||
+        (filters.type.roed && wine.type === "Roedvin") ||
+        (filters.type.rose && wine.type === "Rose") ||
+        (filters.type.dessert && wine.type === "Dessertvin") ||
+        (filters.type.sekt && wine.type === "Sekt") ||
         (filters.producent.keller && wine.producer.short === "Keller") ||
         (filters.producent.hoefflin && wine.producer.short === "Höfflin") ||
         (filters.producent.bercher && wine.producer.short === "Bercher") ||
@@ -80,7 +84,8 @@ export default function Vine(props) {
     })
 
     // console.log(allWines);
-    console.log(filters.type);
+    // console.log(filters.type);
+    console.log(filters);
 
     return (
         <div className="p-vine">
