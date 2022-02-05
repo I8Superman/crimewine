@@ -27,10 +27,25 @@
     font-size       : 1rem;
     height          : 3rem;
     cursor          : pointer;
-    transition      : all 0.2s;
+    transition      : transform 0.2s;
 
     &:hover {
         transform: scale(1.1);
+    }
+
+    &--selected {
+        color           : v.$sepia-black;
+        border          : none;
+        background-color: v.$white-bg;
+        font-family     : v.$tinos-font;
+        font-size       : 1rem;
+        height          : 3rem;
+        cursor          : pointer;
+        transition      : transform 0.2s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
