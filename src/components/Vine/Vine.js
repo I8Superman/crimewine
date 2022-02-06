@@ -24,12 +24,15 @@ export default function Vine(props) {
 
     function sortThings(filteredArray) {
         const sortedArray = filteredArray.sort(function (a, b) {
-            // If sortType === price, we need the .bottle nested key/property, else just sort by sortType:
-            if (sortType === 'price' ? a[sortType].bottle < b[sortType].bottle : a[sortType] < b[sortType]) {
-                return sortDir === "asc" ? 1 : -1;
-            } else {
-                return sortDir === "asc" ? -1 : 1;
-            }
+            if (sortType === '') {
+                return filteredArray;
+            } else
+                // If sortType === price, we need the .bottle nested key/property, else just sort by sortType:
+                if (sortType === 'price' ? a[sortType].bottle < b[sortType].bottle : a[sortType] < b[sortType]) {
+                    return sortDir === "asc" ? 1 : -1;
+                } else {
+                    return sortDir === "asc" ? -1 : 1;
+                }
         })
         return sortedArray;
     }
