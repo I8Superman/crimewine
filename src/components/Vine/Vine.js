@@ -22,7 +22,19 @@ export default function Vine(props) {
     const sortType = filters.sort;
     const sortDir = filters.sortDir;
 
-    const appliedFilters = allWines
+    function sortThings(filteredArray) {
+        const sortedArray = filteredArray.sort(function (a, b) {
+            // If sortType === price, we need the .bottle nested key/property, else just sort by sortType:
+            if (sortType === 'price' ? a[sortType].bottle < b[sortType].bottle : a[sortType] < b[sortType]) {
+                return sortDir === "asc" ? 1 : -1;
+            } else {
+                return sortDir === "asc" ? -1 : 1;
+            }
+        })
+        return sortedArray;
+    }
+
+    const filteredBottles = allWines
         .filter(wine =>
             (filters.type.hvid && wine.type === "Hvidvin") ||
             (filters.type.roed && wine.type === "Roedvin") ||
@@ -40,15 +52,10 @@ export default function Vine(props) {
             (filters.producent.schumann && wine.producer.short === "Schumann") ||
             (filters.producent.franzkeller && wine.producer.short === "Franz Keller")
         )
-        .sort(function (a, b) {
-            if (a[sortType] < b[sortType]) {
-                return sortDir === 'asc' ? 1 : -1;
-            } else {
-                return sortDir === 'asc' ? -1 : 1;
-            }
-        });
 
-    const wineBottles = appliedFilters.map((bottle) => {
+
+    const sortedBottles = sortThings(filteredBottles);
+    const filteredAndSortedBottles = sortedBottles.map((bottle) => {
         return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
     })
 
@@ -70,7 +77,7 @@ export default function Vine(props) {
                 <button className={filters.producent.franzkeller ? "c-producer-btn--selected" : "c-producer-btn"} data-key="producent" data-subkey="franzkeller" onClick={e => toggleFilter(e)}>Klotz (Franz Keller)</button>
             </div>
             <div className="c-products-container">
-                {wineBottles}
+                {filteredAndSortedBottles}
             </div>
         </div>
     )

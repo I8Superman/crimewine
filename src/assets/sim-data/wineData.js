@@ -1219,7 +1219,7 @@ const vine = {
                 "stock": 108,
                 "price": {
                     "bottle": 625,
-                    "box": null,
+                    "box": 3750,
                 },
                 "new": false,
                 "description": "Dyr, men god til dyr.",
@@ -1243,7 +1243,7 @@ const vine = {
                 "stock": 108,
                 "price": {
                     "bottle": 350,
-                    "box": null,
+                    "box": 2100,
                 },
                 "new": false,
                 "description": "Dyr, men god til dyr.",
