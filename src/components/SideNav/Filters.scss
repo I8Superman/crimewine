@@ -10,10 +10,29 @@
         margin-top     : 1rem;
         line-height    : 1.8rem;
 
-        &__filter:hover {
-            transition: all 0.2s;
-            transform : scale(1.1);
-            cursor    : pointer;
+        &__filter {
+
+            &:hover {
+                transition: transform 0.1s;
+                transform : scale(1.1);
+                cursor    : pointer;
+            }
+
+            &--selected {
+                color: v.$sepia-black;
+
+                img {
+                    width      : 0.8rem;
+                    display    : inline-block;
+                    margin-left: 0.3rem;
+                }
+
+                &:hover {
+                    transition: transform 0.1s;
+                    transform : scale(1.1);
+                    cursor    : pointer;
+                }
+            }
         }
     }
 
