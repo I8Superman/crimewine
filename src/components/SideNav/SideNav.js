@@ -1,15 +1,19 @@
 import './Sidenav.scss';
 
-import React from 'react';
+import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import { BasketContext } from '../../contexts/BasketContext';
 import Filters from './Filters';
 
 export default function SideNav(props) {
 
+    const { basket } = useContext(BasketContext);
     const location = useLocation();
+    const isBasketEmpty = basket.length
 
-    // console.log(location);
+    console.log(isBasketEmpty)
+    console.log('Nav render, basket = ' + basket.length);
 
     return (
         <div className='c-side-nav__container'>
@@ -20,7 +24,7 @@ export default function SideNav(props) {
                 <Link className='c-side-nav__link' to="/om"><span className='c-side-nav__text'>Om</span></Link>
                 <Link className='c-side-nav__link' to="/kontakt"><span className='c-side-nav__text'>Kontakt</span></Link>
                 <Link className='c-side-nav__link' to="/kig-forbi"><span className='c-side-nav__text'>Kig forbi</span></Link>
-                <Link className='c-side-nav__link' to="/kurv"><span className='c-side-nav__text'>Kurv</span></Link>
+                {basket.length !== 0 && <Link className='c-side-nav__link' to="/kurv"><span className='c-side-nav__text'>Kurv</span></Link>}
             </nav>
         </div>
 

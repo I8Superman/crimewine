@@ -128,8 +128,6 @@ function App() {
     }
   }
 
-  console.log(filters)
-
   return (
     <div className="c-app">
       <BasketContext.Provider value={{ basket, setBasket }}>

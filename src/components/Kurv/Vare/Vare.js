@@ -48,8 +48,6 @@ export default function Vare(props) {
     const total = nrOfBoxes * thisWine.price.box + nrOfBottles * thisWine.price.bottle;
     const discount = quantity * thisWine.price.bottle - total;
 
-    console.log('Rendered')
-
     return (
         <div className='c-vare'>
             <div className='c-vare__bottle o-col'>
