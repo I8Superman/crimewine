@@ -10,10 +10,6 @@ export default function SideNav(props) {
 
     const { basket } = useContext(BasketContext);
     const location = useLocation();
-    const isBasketEmpty = basket.length
-
-    console.log(isBasketEmpty)
-    console.log('Nav render, basket = ' + basket.length);
 
     return (
         <div className='c-side-nav__container'>

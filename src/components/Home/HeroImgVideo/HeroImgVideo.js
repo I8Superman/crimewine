@@ -1,4 +1,4 @@
-import './HeroImgVideo.css';
+import './HeroImgVideo.scss';
 
 import backgroundVideo from '../../../assets/video/background-video.mp4';
 

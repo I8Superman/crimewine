@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import BasketIcon from './components/BasketIcon/BasketIcon';
+import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home';
 import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
@@ -143,6 +144,7 @@ function App() {
           <Route path="/kig-forbi" element={<KigForbi />} />
           <Route path="/kurv" element={<Kurv />} />
         </Routes>
+        <Footer />
       </BasketContext.Provider>
     </div>
   );

@@ -1,0 +1,38 @@
+@use '../../../global-styles/forwarder.scss'as v;
+
+.c-introblurb {
+    display                 : grid;
+    grid-template-columns   : v.$desktop-grid;
+    gap                     : 0 20px;
+    // height               : 100vh;
+    background-image        : url("../../../assets/images/introblurb-background.jpg");
+    background-size         : cover;
+    background-position     : center;
+
+    &-content {
+        grid-column   : 4 / 12;
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+        padding-left  : 10%;
+        padding-right : 10%;
+
+        &__header {
+            @include v.h1-styled;
+        }
+
+        &__top-paragraph {
+            @include v.paragraph;
+        }
+
+        &__img {
+            // width        : 100%;
+            margin-bottom: 3rem;
+        }
+
+        &__bottom-paragraph {
+            @include v.paragraph;
+        }
+    }
+
+}

@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./Home.scss";
 
 import HeroImgVideo from "./HeroImgVideo/HeroImgVideo";
 import IntroBlurb from "./IntroBlurb/IntroBlurb";
@@ -11,15 +11,8 @@ function Home() {
         <div className="p-home">
             {/* <NewsWidget /> */}
             <HeroImgVideo />
-            <h1>Home page here</h1>
             <IntroBlurb />
             <NewWine />
-            <div className="block1">
-                <div className="gridblock1"></div>
-            </div>
-            <div className="block2">
-                <div className="gridblock2"></div>
-            </div>
         </div>
     );
 }
