@@ -57,10 +57,17 @@
             display         : flex;
             align-items     : center;
             justify-content : center;
+            font-size       : 1.2rem;
+            transition      : all 0.2s;
 
-            img {
-                width: 0.6rem;
+            &:hover {
+                background-color: v.$sepia-black;
+                color           : white;
             }
+        }
+
+        &__plus p {
+            margin-top: 0.1rem;
         }
 
         &__input {
@@ -84,6 +91,29 @@
             font-family     : v.$tinos-font;
             font-size       : 1rem;
             margin-left     : 0.5rem;
+
+            &:hover {
+                background-color: v.$sepia-black;
+                color           : white;
+            }
         }
+    }
+}
+
+.c-vin__ctrls__add[bounce='1'] {
+    animation: bounce 0.3s 1;
+}
+
+@keyframes bounce {
+    33% {
+        transform: scale(1.1);
+    }
+
+    66% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

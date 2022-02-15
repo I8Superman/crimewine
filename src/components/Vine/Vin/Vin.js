@@ -2,14 +2,16 @@ import './Vin.scss';
 
 import { useState } from 'react';
 
-import minus from '../../../assets/svgs/minus.svg';
-import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
-import plus from '../../../assets/svgs/plus.svg';
+// import minus from '../../../assets/svgs/minus.svg';
+// import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
+// import plus from '../../../assets/svgs/plus.svg';
 
 export default function Vin({ bottleData, addToBasketFunc }) {
 
     const addToBasket = addToBasketFunc;
     const [quantity, setQuantity] = useState(1);
+
+    const [bounce, setBounce] = useState(0);
 
     function adjustQuantity(adjustment) { // Using the +/- buttons
         const newAmount = quantity + adjustment;
@@ -25,7 +27,8 @@ export default function Vin({ bottleData, addToBasketFunc }) {
         }
     }
 
-    function laegIKurv() {
+    function laegIKurv(e) {
+        setBounce(1);
         addToBasket(quantity, bottleData);
         setQuantity(1); // Resets qty to 1, so previous numbers don't linger
     }
@@ -43,10 +46,10 @@ export default function Vin({ bottleData, addToBasketFunc }) {
             <p className='c-vin__price'>{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
             <div className='c-vin__ctrls'>
                 {/* <div className='c-vin__ctrls__adjust'> */}
-                <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
+                <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><p>-</p></button>
                 <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
-                <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
-                <button className='c-vin__ctrls__add' onClick={() => laegIKurv()}>Læg i kurv</button>
+                <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><p>+</p></button>
+                <button className='c-vin__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>
             </div>
         </div >
     )
