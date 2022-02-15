@@ -1,7 +1,7 @@
 import './Sidenav.scss';
 
 import { useContext } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import { BasketContext } from '../../contexts/BasketContext';
 import Filters from './Filters';
