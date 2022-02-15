@@ -23,6 +23,7 @@
 
         &__top-paragraph {
             @include v.paragraph;
+            margin-bottom: 3rem;
         }
 
         &__img {
@@ -32,6 +33,7 @@
 
         &__bottom-paragraph {
             @include v.paragraph;
+            margin-bottom: 3rem;
         }
     }
 

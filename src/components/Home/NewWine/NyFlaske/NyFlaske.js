@@ -3,8 +3,6 @@ export default function NyFlaske(props) {
 
     const bottleData = props.bottleData;
 
-    console.log(bottleData);
-
     return (
         <div className="c-newwine__wines__product">
             <div className="c-newwine__wines__product__image">

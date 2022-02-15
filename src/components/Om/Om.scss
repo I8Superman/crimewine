@@ -1,0 +1,90 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+.c-om {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+
+    &__title {
+        @include v.h1-styled;
+    }
+
+    &__section {
+        width                : 100%;
+        display              : grid;
+        grid-template-columns: v.$desktop-grid;
+        gap                  : 0 20px;
+        margin-bottom        : 5rem;
+
+        &__text {
+            grid-column    : 4 /8;
+            display        : flex;
+            flex-direction : column;
+            justify-content: center;
+
+            &__pgrph {
+                @include v.paragraph;
+                margin-bottom: 1rem;
+            }
+
+            &.three {
+                grid-column: 8 / 13;
+            }
+
+            &.four {
+                grid-column: 4 / 8;
+            }
+
+            &.five {
+                grid-column: 8 / 13;
+            }
+
+            &.six {
+                grid-column: 4 / 8;
+            }
+
+            &.seven {
+                grid-column: 8 / 13;
+            }
+
+            &.eight {
+                grid-column: 5 / 12;
+            }
+        }
+
+        &__img {
+            grid-column: -3 / -7;
+            width      : 100%;
+
+            &.two {
+                grid-column: 1 / 15;
+            }
+
+            &.three {
+                grid-column: 4 / 7;
+            }
+
+            &.four {
+                grid-column: -1 / -7;
+            }
+
+            &.five {
+                grid-column: 1 / 7;
+            }
+
+            &.six {
+                grid-column: -3 / -7;
+            }
+
+            &.seven {
+                grid-column: 4 / 7;
+            }
+
+            &.nine {
+                grid-column: 4 / 13;
+            }
+
+
+        }
+    }
+}

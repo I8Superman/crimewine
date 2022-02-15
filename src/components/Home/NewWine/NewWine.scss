@@ -22,14 +22,14 @@
 
         &__product {
             display: flex;
-            gap    : 5%;
+            gap    : 7%;
             width  : 100%;
             padding: 2rem;
 
 
             &__image {
                 position       : relative;
-                width          : 40%;
+                width          : 38%;
                 display        : flex;
                 justify-content: center;
 
@@ -38,25 +38,23 @@
                 }
 
                 &__data {
-                    position           : absolute;
-                    // height          : 5rem;
-                    top                : 25%;
-                    display            : flex;
-                    flex-direction     : column;
-                    justify-content    : center;
-                    align-items        : center;
-                    background-color   : v.$sepia-black;
-                    padding            : 0.5rem;
+                    position        : absolute;
+                    width           : 100%;
+                    top             : 25%;
+                    display         : flex;
+                    flex-direction  : column;
+                    justify-content : center;
+                    align-items     : center;
+                    background-color: v.$sepia-black;
+                    padding         : 0.5rem;
 
                     &__producer,
                     &__name,
                     &__year {
-                        // width           : 100%;
-                        color              : white;
-                        // padding         : 0.5rem 1rem 0.5rem 1rem;
-                        text-align         : center;
-                        font-family        : v.$tinos-font;
-                        line-height        : 1.3rem;
+                        color      : white;
+                        text-align : center;
+                        font-family: v.$tinos-font;
+                        line-height: 1.3rem;
                     }
 
                     &__producer {
@@ -75,6 +73,7 @@
                 display        : flex;
                 flex-direction : column;
                 justify-content: center;
+                line-height    : 1.3rem;
 
                 &__description {
                     font-family  : v.$tinos-font;

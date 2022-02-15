@@ -54,10 +54,9 @@ sans-serif;
 }
 
 @mixin paragraph {
-    font-family  : $tinos-font;
-    font-size    : 1rem;
-    line-height  : 1.3rem;
-    margin-bottom: 3rem;
+    font-family: $tinos-font;
+    font-size  : 1rem;
+    line-height: 1.3rem;
 
     span {
         color           : c.$white-bg;
