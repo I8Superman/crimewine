@@ -66,7 +66,7 @@ function App() {
   function toggleFilter(e) {
     let key = e.target.dataset.key;
     let subkey = e.target.dataset.subkey;
-    console.log('key = ' + key, 'subkey = ' + subkey)
+    // console.log('key = ' + key, 'subkey = ' + subkey)
     // Handles the sorting values of the filters obj
     if (key === 'sort') {
       console.log('Were sorting things out!')
@@ -134,7 +134,7 @@ function App() {
       <BasketContext.Provider value={{ basket, setBasket }}>
         <SideNav toggleFilter={toggleFilter} filters={filters} />
         <Logo />
-        <BasketIcon />
+        {basket.length !== 0 && <BasketIcon />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nyheder" element={<Nyheder />} />

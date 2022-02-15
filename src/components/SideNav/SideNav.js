@@ -30,9 +30,8 @@ export default function SideNav(props) {
                 <NavLink className={({ isActive }) =>
                     isActive ? 'c-side-nav__link selected' : 'c-side-nav__link'
                 } to="/kig-forbi"><span className='c-side-nav__text'>Kig forbi</span></NavLink>
-                {basket.length !== 0 && <Link className={({ isActive }) =>
-                    isActive ? 'c-side-nav__link selected' : 'c-side-nav__link'
-                } to="/kurv"><span className='c-side-nav__text'>Kurv</span></Link>}
+                {basket.length !== 0 && <NavLink className={({ isActive }) => isActive ? 'c-side-nav__link selected' : 'c-side-nav__link'
+                } to="/kurv"><span className='c-side-nav__text'>Kurv</span></NavLink>}
             </nav>
         </div >
     );
