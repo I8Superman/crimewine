@@ -93,7 +93,7 @@ const vine = {
                     "bottle": 89,
                     "box": 500,
                 },
-                "new": false,
+                "new": true,
                 "description": "Preisleistungsverhältnis... er det tyske ord for forholdet mellem pris og kvalitet, og det er simpelthen 'Spitze' for så vidt angår denne vin. Den er lavet på Müller-Thurgau-druen, den har en superelegant syrlighed med frisk, afrundet citrus. Den får smagsløgene til at løbe i vand og savle efter alskens forretter, herunder med fisk, skalddyr, stenbidderrogn. Spis og skål!",
                 "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
                 "notes": null
@@ -405,7 +405,7 @@ const vine = {
                     "bottle": 179,
                     "box": 1000,
                 },
-                "new": false,
+                "new": true,
                 "description": "Tilbage i ny supergod årgang! Hvis du er til friske vine med en vis syre, så er dette noget for dig. Den kombinerer den friske ranke, lette syre med stor karakter i form af mineralitet, citrus og appelsin, let valnødaroma. Vidunderlig til fisk med fx beurre blanc.",
                 "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
                 "notes": null
@@ -837,7 +837,7 @@ const vine = {
                     "bottle": 399,
                     "box": 2200,
                 },
-                "new": false,
+                "new": true,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
                 "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
                 "notes": null
@@ -1437,7 +1437,7 @@ const vine = {
                     "bottle": 109,
                     "box": 600,
                 },
-                "new": false,
+                "new": true,
                 "description": "Fremragende sommerlet rosé med bobler. En af vore mest populære sekt (som i dette tilfælde er en prosecco). Genial pris - som så mange af Fogts vine, er der smæk for skillingen.",
                 "goodwith": ["Nytår", "sushi", "Lette fiskeanretninger"],
                 "notes": null

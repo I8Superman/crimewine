@@ -1,3 +1,118 @@
+@use '../../../global-styles/forwarder.scss'as v;
+
 .c-newwine {
-    position: absolute;
+    display                 : grid;
+    grid-template-columns   : v.$desktop-grid;
+    grid-template-rows      : 15% 30% 30%;
+    gap                     : 0 20px;
+    // height               : 200vh;
+
+
+    &__wines {
+        grid-column   : 5 / 11;
+        grid-row      : 1 /5;
+        height        : 100%;
+        display       : flex;
+        flex-direction: column;
+        align-items   : center;
+
+        &__header {
+            @include v.h1-styled
+        }
+
+        &__product {
+            display: flex;
+            gap    : 5%;
+            width  : 100%;
+            padding: 2rem;
+
+
+            &__image {
+                position       : relative;
+                width          : 40%;
+                display        : flex;
+                justify-content: center;
+
+                &__img {
+                    height: 21rem;
+                }
+
+                &__data {
+                    position           : absolute;
+                    // height          : 5rem;
+                    top                : 25%;
+                    display            : flex;
+                    flex-direction     : column;
+                    justify-content    : center;
+                    align-items        : center;
+                    background-color   : v.$sepia-black;
+                    padding            : 0.5rem;
+
+                    &__producer,
+                    &__name,
+                    &__year {
+                        // width           : 100%;
+                        color              : white;
+                        // padding         : 0.5rem 1rem 0.5rem 1rem;
+                        text-align         : center;
+                        font-family        : v.$tinos-font;
+                        line-height        : 1.3rem;
+                    }
+
+                    &__producer {
+                        font-style: italic;
+                    }
+
+                    &__producer,
+                    &__name {
+                        margin-bottom: 0.25rem;
+                    }
+                }
+            }
+
+            &__text {
+                width          : 55%;
+                display        : flex;
+                flex-direction : column;
+                justify-content: center;
+
+                &__description {
+                    font-family  : v.$tinos-font;
+                    margin-bottom: 3rem;
+                }
+
+                &__price {
+                    font-family: v.$tinos-font;
+                }
+            }
+        }
+
+        &__product:nth-of-type(even) {
+            flex-direction: row-reverse;
+
+            .c-newwine__wines__product__text {
+                text-align: right;
+            }
+        }
+    }
+
+    &__img1 {
+        grid-row   : 2;
+        grid-column: 1 / 5;
+        width      : 100%;
+    }
+
+    &__img2 {
+        grid-row   : 3;
+        grid-column: 11 / -1;
+        width      : 100%;
+    }
+
+    &__img3 {
+        grid-row   : 4;
+        grid-column: 1 / 5;
+        width      : 100%;
+    }
+
+
 }
