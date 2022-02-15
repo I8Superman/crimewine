@@ -11,7 +11,7 @@ export default function Om() {
                     <p className="c-om__section__text__pgrph">Vi kender området særdeles godt, har mangeårigt samarbejde med vinbønderne og har tidligere deltaget i vinhøsten i september/oktober måned. Vi vælger de vine ud, som vi selv – og andre danskere – ikke bør leve foruden! Gennem årene er det lykkedes os at lægge et sugerør ind til de bedste vingårde i området. </p>
                     <p className="c-om__section__text__pgrph">Vi har samtidigt udvidet vort territorium, og forhandler nogle skønne vine fra det lidt nordligere beliggende Rheinhessen samt enkelte fra andre regioner.</p>
                 </div>
-                <img className="c-om__section__img" src="images/om-1.jpg" alt="" />
+                <img className="c-om__section__img" src={'images/om-1.jpg'} alt="" />
             </section>
             <section className="c-om__section">
                 <img className={'c-om__section__img two'} src="images/om-2.jpg" alt="" />

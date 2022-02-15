@@ -6,7 +6,7 @@
     height               : 100vh;
     display              : grid;
     grid-template-columns: v.$desktop-grid;
-    grid-template-rows   : 5rem 5rem 3rem 20rem 10rem;
+    grid-template-rows   : 5rem 5rem 3rem 54% 10rem;
     gap                  : 0.5rem 20px;
 
     &__breadcrumbs-and-order-btn {
@@ -55,11 +55,11 @@
     }
 
     &__vare-container {
-        border     : 1px black solid;
-        grid-column: 4 / 13;
-        height     : 20rem;
-        grid-row   : 4 / 5;
-        overflow-y : scroll;
+        border        : 1px black solid;
+        grid-column   : 4 / 13;
+        // height     : 20rem;
+        grid-row      : 4 / 5;
+        overflow-y    : scroll;
     }
 
     &__summary {
