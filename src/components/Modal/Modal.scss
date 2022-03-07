@@ -1,0 +1,12 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+.c-modal {
+    position        : static;
+    top             : 0px;
+    left            : 0px;
+    width           : 100vw;
+    height          : 100vh;
+    background-color: lightblue;
+    border          : 2px blue solid;
+    z-index         : 10;
+}

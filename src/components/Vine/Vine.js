@@ -2,17 +2,28 @@ import './Vine.scss';
 
 import { useEffect, useState } from 'react';
 
-import vinData from '../../assets/sim-data/wineData'
+import vinData from '../../assets/sim-data/wineData';
+import Modal from './../Modal/Modal';
 import Vin from './Vin/Vin';
 
 export default function Vine(props) {
 
     const [allWines, setAllWines] = useState([]);
 
+    const [showModal, setShowModal] = useState(false);
+
     useEffect(() => { // Getting the 'data'
         // console.log('Setting ALL wines')
         setAllWines(vinData.data.wines);
     }, []);
+
+    function toggleModal(e) {
+        const elmClicked = e.target;
+        console.log(elmClicked + " was clicked")
+        setShowModal(!showModal)
+    }
+
+    console.log('showModal is now ' + showModal);
 
     // FILTERING & SORTING: (based on the passed down filters obj from App.js)
     // Some shorthands:
@@ -59,12 +70,8 @@ export default function Vine(props) {
 
     const sortedBottles = sortThings(filteredBottles);
     const filteredAndSortedBottles = sortedBottles.map((bottle) => {
-        return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} />
+        return <Vin key={bottle.id} bottleData={bottle} addToBasketFunc={props.addToBasketFunc} toggleModalFunc={toggleModal} />
     })
-
-    // console.log(allWines);
-    // console.log(filters.type);
-    // console.log(filters);
 
     return (
         <div className="p-vine">
@@ -82,6 +89,7 @@ export default function Vine(props) {
             <div className="c-products-container">
                 {filteredAndSortedBottles}
             </div>
+            {showModal && <Modal />}
         </div>
     )
 }

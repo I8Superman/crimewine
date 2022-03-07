@@ -11,15 +11,18 @@ import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
 import Kurv from './components/Kurv/Kurv';
 import Logo from './components/Logo/Logo';
+import Modal from './components/Modal/Modal'
 import Nyheder from './components/Nyheder/Nyheder';
 import Om from './components/Om/Om';
 import SideNav from './components/SideNav/SideNav';
 import Vine from './components/Vine/Vine';
 import { BasketContext } from './contexts/BasketContext';
+// import { ModalContext } from './contexts/ModalContext';
 
 function App() {
 
   const [basket, setBasket] = useState([]);
+  // const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
     type: {
       alle: true,
@@ -135,6 +138,7 @@ function App() {
         <SideNav toggleFilter={toggleFilter} filters={filters} />
         <Logo />
         {basket.length !== 0 && <BasketIcon />}
+        {/* <ModalContext.Provider value={{ showModal, setShowModal }}> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nyheder" element={<Nyheder />} />
@@ -144,6 +148,7 @@ function App() {
           <Route path="/kig-forbi" element={<KigForbi />} />
           <Route path="/kurv" element={<Kurv />} />
         </Routes>
+        {/* </ModalContext.Provider> */}
         <Footer />
       </BasketContext.Provider>
     </div>

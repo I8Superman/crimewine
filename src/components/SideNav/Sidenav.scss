@@ -11,6 +11,7 @@
 }
 
 .c-side-nav {
+    box-sizing        : border-box;
     /* height         : 20rem; */
     display           : flex;
     flex-direction    : column;
@@ -22,12 +23,12 @@
         font-size       : 1.2rem;
         color           : v.$white-bg;
         background-color: v.$sepia-black;
+        border          : 1px solid v.$sepia-black;
         padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
         transition      : all 0.2s;
 
         &:hover {
             color           : v.$sepia-black;
-            border          : 1px solid v.$sepia-black;
             background-color: white;
         }
     }
@@ -40,7 +41,6 @@
     .selected {
         .c-side-nav__text {
             color           : v.$sepia-black;
-            border          : 1px solid v.$sepia-black;
             background-color: white;
         }
     }

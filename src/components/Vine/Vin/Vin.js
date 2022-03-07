@@ -6,9 +6,9 @@ import { useState } from 'react';
 // import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 // import plus from '../../../assets/svgs/plus.svg';
 
-export default function Vin({ bottleData, addToBasketFunc }) {
+export default function Vin({ bottleData, addToBasketFunc, toggleModalFunc }) {
 
-    const addToBasket = addToBasketFunc;
+    // const addToBasket = addToBasketFunc;
     const [quantity, setQuantity] = useState(1);
 
     const [bounce, setBounce] = useState(0);
@@ -28,15 +28,22 @@ export default function Vin({ bottleData, addToBasketFunc }) {
     }
 
     function laegIKurv(e) {
+        e.stopPropagation(); // Stops event from bubbling or triggering the toggleModal function
         setBounce(1);
-        addToBasket(quantity, bottleData);
+        addToBasketFunc(quantity, bottleData);
         setQuantity(1); // Resets qty to 1, so previous numbers don't linger
     }
+
+    // function toggleModal(e) {
+    //     const elmClicked = e.target;
+    //     console.log(elmClicked + " was clicked")
+    //     setShowModal(!showModal)
+    // }
 
     // console.log('Rendered')
 
     return (
-        <div className="c-vin">
+        <div className="c-vin" onClick={(e) => toggleModalFunc(e)}>
             {/* <img className="c-vin__img" src={require(`../../../assets/images/wine-bottles/cropped/${bottleData.img}.png`).default} alt="" /> */}
             <img className="c-vin__img" src={`images/cropped/${bottleData.img}.png`} alt="" />
             <div className="c-vin__name">
