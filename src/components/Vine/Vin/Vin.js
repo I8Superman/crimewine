@@ -2,6 +2,8 @@ import './Vin.scss';
 
 import { useState } from 'react';
 
+import Modal from '../../Modal/Modal';
+
 // import minus from '../../../assets/svgs/minus.svg';
 // import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 // import plus from '../../../assets/svgs/plus.svg';
@@ -12,6 +14,8 @@ export default function Vin({ bottleData, addToBasketFunc, toggleModalFunc }) {
     const [quantity, setQuantity] = useState(1);
 
     const [bounce, setBounce] = useState(0);
+
+    const [showModal, setShowModal] = useState(false);
 
     function adjustQuantity(adjustment) { // Using the +/- buttons
         const newAmount = quantity + adjustment;
@@ -34,30 +38,43 @@ export default function Vin({ bottleData, addToBasketFunc, toggleModalFunc }) {
         setQuantity(1); // Resets qty to 1, so previous numbers don't linger
     }
 
-    // function toggleModal(e) {
-    //     const elmClicked = e.target;
-    //     console.log(elmClicked + " was clicked")
-    //     setShowModal(!showModal)
-    // }
+    function openModal() {
+        console.log('Model open!')
+        setShowModal(true);
+    }
 
-    // console.log('Rendered')
+    function closeModal(e) {
+        e.stopPropagation()
+
+        console.log(e.target.dataset.close)
+        if (e.target.dataset.close === 'yes') {
+            console.log('Modal closed!')
+            setShowModal(false);
+            document.body.style.overflow = 'unset'; // Enables scrolling on the body again
+        }
+    }
+
+    // console.log('Vin rendered')
 
     return (
-        <div className="c-vin" onClick={(e) => toggleModalFunc(e)}>
-            {/* <img className="c-vin__img" src={require(`../../../assets/images/wine-bottles/cropped/${bottleData.img}.png`).default} alt="" /> */}
-            <img className="c-vin__img" src={`images/cropped/${bottleData.img}.png`} alt="" />
-            <div className="c-vin__name">
-                <div className="c-vin__name__text">{bottleData.name}</div>
+        <>
+            <div className="c-vin" onClick={() => openModal()}>
+                {/* <img className="c-vin__img" src={require(`../../../assets/images/wine-bottles/cropped/${bottleData.img}.png`).default} alt="" /> */}
+                <img className="c-vin__img" src={`images/cropped/${bottleData.img}.png`} alt="" />
+                <div className="c-vin__name">
+                    <div className="c-vin__name__text">{bottleData.name}</div>
+                </div>
+                <p className='c-vin__data'>{bottleData.producer.short} - {bottleData.year}</p>
+                <p className='c-vin__price'>{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
+                <div className='c-vin__ctrls'>
+                    {/* <div className='c-vin__ctrls__adjust'> */}
+                    <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><p>-</p></button>
+                    <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
+                    <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><p>+</p></button>
+                    <button className='c-vin__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>
+                </div>
             </div>
-            <p className='c-vin__data'>{bottleData.producer.short} - {bottleData.year}</p>
-            <p className='c-vin__price'>{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
-            <div className='c-vin__ctrls'>
-                {/* <div className='c-vin__ctrls__adjust'> */}
-                <button className='c-vin__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><p>-</p></button>
-                <input className='c-vin__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
-                <button className='c-vin__ctrls__plus' onClick={() => adjustQuantity(+1)}><p>+</p></button>
-                <button className='c-vin__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>
-            </div>
-        </div >
-    )
+            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} />}
+        </>
+    );
 }

@@ -11,7 +11,6 @@ import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
 import Kurv from './components/Kurv/Kurv';
 import Logo from './components/Logo/Logo';
-import Modal from './components/Modal/Modal'
 import Nyheder from './components/Nyheder/Nyheder';
 import Om from './components/Om/Om';
 import SideNav from './components/SideNav/SideNav';

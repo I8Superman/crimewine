@@ -12,15 +12,19 @@ export default function Vine(props) {
 
     const [showModal, setShowModal] = useState(false);
 
+    const [bottleInfo, setBottleInfo] = useState({});
+
     useEffect(() => { // Getting the 'data'
         // console.log('Setting ALL wines')
         setAllWines(vinData.data.wines);
     }, []);
 
-    function toggleModal(e) {
+    function toggleModal(e, bottleData) {
         const elmClicked = e.target;
         console.log(elmClicked + " was clicked")
+        setBottleInfo(bottleData);
         setShowModal(!showModal)
+        console.log(bottleData);
     }
 
     console.log('showModal is now ' + showModal);
@@ -89,17 +93,7 @@ export default function Vine(props) {
             <div className="c-products-container">
                 {filteredAndSortedBottles}
             </div>
-            {showModal && <Modal />}
+            {showModal && <Modal bottleInfo={bottleInfo} />}
         </div>
     )
 }
-
-// Producer categories
-// Filter categories (under Vine menu item)
-// Product container
-  // Single wine
-    // name
-    // img
-    // Producer
-    // Year
-    // Price

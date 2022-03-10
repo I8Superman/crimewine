@@ -36,7 +36,7 @@ sans-serif;
 @mixin h2-styled {
     span {
         font-family     : $tinos-font;
-        font-size       : 2rem;
+        font-size       : 1.3rem;
         color           : c.$white-bg;
         background-color: c.$sepia-black;
         padding         : 0.125rem 1rem 0.125rem 1rem;
@@ -46,10 +46,10 @@ sans-serif;
 @mixin h3-styled {
     span {
         font-family     : $tinos-font;
-        font-size       : 2rem;
+        font-size       : 1.2rem;
         color           : c.$white-bg;
         background-color: c.$sepia-black;
-        padding         : 0.125rem 1rem 0.125rem 1rem;
+        padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
     }
 }
 

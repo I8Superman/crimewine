@@ -23,7 +23,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Vores populære terrassevin - let, frugtig og tør. Bedre vin til små penge skal du lede længe efter! Der er en hel liter i hver flaske, og den holder sig fint i køleskabet en uges tid - hvis du altså kan holde fingrene fra den.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": ["kraftig fisk, kalvekød, fjerkræ, røget forel, grillet gris"],
                 "notes": "NB: Literflaske"
             },
             {
@@ -47,7 +47,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Vores populære terrassevin - let, frugtig og tør. Bedre vin til små penge skal du lede længe efter!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": "NB: Literflaske"
             },
             {
@@ -71,7 +71,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Vores populære terrassevin - let, frugtig og tør. Bedre vin til små penge skal du lede længe efter!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -95,7 +95,7 @@ const vine = {
                 },
                 "new": true,
                 "description": "Preisleistungsverhältnis... er det tyske ord for forholdet mellem pris og kvalitet, og det er simpelthen 'Spitze' for så vidt angår denne vin. Den er lavet på Müller-Thurgau-druen, den har en superelegant syrlighed med frisk, afrundet citrus. Den får smagsløgene til at løbe i vand og savle efter alskens forretter, herunder med fisk, skalddyr, stenbidderrogn. Spis og skål!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -119,7 +119,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Flot, rang, klassisk Weissburgunder (pinot blanc) fra Kaiserstuhl - en af vore signaturvine!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -143,7 +143,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Berchers Weissburgunder er i særklasse. Typisk tysk Weissburgunder når det er bedst. Og dette er topniveauet. Grosses Gewächs betyder lavt høstudbytte og dybsinding vin med masser af nuancer og stort lagringspotentiale. Men den kan også drikkes nu til fiskeretter med fed sovs og retter med lyst kød... eller mørkere kød, det kan den nemlig også klare. En kraftkarl!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -167,7 +167,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Berchers Weissburgunder er i særklasse. Typisk tysk Weissburgunder når det er bedst. Og dette er topniveauet. Grosses Gewächs betyder lavt høstudbytte og dybsinding vin med masser af nuancer og stort lagringspotentiale.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -191,7 +191,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Bercher har produceret weissburgunder (pinot blanc) i adskillige generationer. De ved lige, hvordan den skal smage. Her i den fine udgave 'Erste Lage' fra en vinmark rig på mineralitet.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -215,7 +215,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Whoaaa en nice vin!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -239,7 +239,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Dejlig frisk Weissburgunder (pinot blanc) fra en af de førende biodynamiske producenter i Kaiserstuhl.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -263,7 +263,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Dejlig frisk Weissburgunder (pinot blanc) fra en af de førende biodynamiske producenter i Kaiserstuhl.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -287,7 +287,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Den moderne tørre og velstrukturerede udgave af den klassiske Weissburgunder (Pinot Blanc) fra Kaiserstuhl. Vinen har virkelig god fylde og er meget egnet til mad.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -311,7 +311,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Drik den, drik den, drik den!!!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -335,7 +335,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "n af vore egne yndlingsvine, fyldig og frugtrig, og alligevel tør. En fin madvin, som Arne Bercher år efter år fremstiller i samme høje kvalitet.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": "Vinfestivalens VINDERVIN BÅDE 2015 og 2016!!!"
             },
             {
@@ -359,7 +359,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En af vore egne yndlingsvine, fyldig og frugtrig, og alligevel tør. En fin madvin, som Arne Bercher år efter år fremstiller i samme høje kvalitet.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -383,7 +383,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Grauburgunderen fra Feuerberg udvikler sig lidt langsommere end sin slægtning fra Schlossgarten, men er på trods heraf allerede nu en stor vin. Vinen er lagret 9 måneder på barrique.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -407,7 +407,7 @@ const vine = {
                 },
                 "new": true,
                 "description": "Tilbage i ny supergod årgang! Hvis du er til friske vine med en vis syre, så er dette noget for dig. Den kombinerer den friske ranke, lette syre med stor karakter i form af mineralitet, citrus og appelsin, let valnødaroma. Vidunderlig til fisk med fx beurre blanc.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -431,7 +431,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Tilbage i ny supergod årgang! Hvis du er til friske vine med en vis syre, så er dette noget for dig. Den kombinerer den friske ranke, lette syre med stor karakter i form af mineralitet, citrus og appelsin, let valnødaroma. Vidunderlig til fisk med fx beurre blanc.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -455,7 +455,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Ny årgang af Bettina Schumanns interessante bud på en Grauburgunder, der vil lidt mere end de fleste.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -479,7 +479,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Her synes vi selv, vi har gjort et kup: En karaktistisk Grauburgunder til en uhørt lav pris. Lidt kraftigere end Weissburgunder, god frugt og behagelig syre. Efter åbning holder den sig fint 3-4 dage i køleskab, så du behøver ikke drikke det hele på én gang!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": "OBS - Liteflaske"
             },
             {
@@ -503,7 +503,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Her synes vi selv, vi har gjort et kup: En karaktistisk Grauburgunder til en uhørt lav pris. Lidt kraftigere end Weissburgunder, god frugt og behagelig syre. Efter åbning holder den sig fint 3-4 dage i køleskab, så du behøver ikke drikke det hele på én gang!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -527,7 +527,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En stor chardonnay fra Bercher fra stokke med reduceret udbytte. Trods barriquelagringen er der tale om en frisk vin med mindre fedme end den, man typisk finder i de oversøiske chardonnayer.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -551,7 +551,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Du bør unde dig selv at smage, hvad Chardonnay kan udvikle sig til i Tyskland. Her kan du virkelig smage frugten, uden at den overdøves af fadpræg (som den dog også har - navnet afslører, at nogle af druer har fået fad, andre ikke, deraf dobbeltnavnet). Der er meget vin for pengene!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -575,7 +575,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Top of the pop chart!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -599,7 +599,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Winzergenosssenschaft Königschaffhausen har her begået en rigtig god hvidvin på røde druer. Vinen er god til mad, kraftig og smagfuld, men fortsat tør. Et fund til prisen, synes vi selv!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -623,7 +623,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Også Fogt kan frembringe super hvidvin på Pinot Noir-druen. En kraftig hvidvin med god syrebalance og kraftig smag - et fund til prisen.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -647,7 +647,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Riesling Grisling",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -671,7 +671,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Riesling Grisling",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -695,7 +695,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Skøn slank, velafbalanceret Riesling fra det skifferkolde Rheinhessen - lige til at få riesling af! Området i Rheinhessen hos Georg Fogt er ideelt til riesling. Du får vildt meget riesling til pengene hos Fogt. Vinen kan drikkes nu, men udvikler sig fremragende over de næste 5-6 år.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -719,7 +719,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Skøn slank, velafbalanceret Riesling fra det skifferkolde Rheinhessen - lige til at få riesling af! Området i Rheinhessen hos Georg Fogt er ideelt til riesling. Du får vildt meget riesling til pengene hos Fogt. Vinen kan drikkes nu, men udvikler sig fremragende over de næste 5-6 år.",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -743,7 +743,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Hofstetter ist ein gutes Weingut!!!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -767,7 +767,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "Hofstetter ist ein gutes Weingut!!!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -791,7 +791,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -815,7 +815,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -839,7 +839,7 @@ const vine = {
                 },
                 "new": true,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -863,7 +863,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
@@ -887,7 +887,7 @@ const vine = {
                 },
                 "new": false,
                 "description": "En virkelig kraftig og velsmagende rosévin lavet på Pinot Noir. En meget spændende vin fra Weingut Bercher. Hvis du kan lide rosé, skal du prøve denne - og hvis du ikke kan lide rosé, bør du virkelig prøve denne!",
-                "goodwith": ["kraftig fisk", "kalvekød", "fjerkræ", "røget forel", "grillet gris"],
+                "goodwith": [],
                 "notes": null
             },
             {
