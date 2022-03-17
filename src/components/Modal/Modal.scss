@@ -139,3 +139,21 @@
 
     }
 }
+
+.c-modal__container__data__ctrls__add[bounce='1'] {
+    animation: bounce 0.3s 1;
+}
+
+@keyframes bounce {
+    25% {
+        transform: scale(0.9);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
