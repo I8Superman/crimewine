@@ -40,16 +40,12 @@ export default function Vin({ bottleData, addToBasketFunc }) {
     }
 
     function openModal() {
-        console.log('Model open!')
         setShowModal(true);
     }
 
     function closeModal(e) {
         e.stopPropagation()
-
-        console.log(e.target.dataset.close)
         if (e.target.dataset.close === 'yes') {
-            console.log('Modal closed!')
             setShowModal(false);
             document.body.style.overflow = 'unset'; // Enables scrolling on the body again
         }

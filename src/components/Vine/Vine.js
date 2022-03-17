@@ -27,8 +27,6 @@ export default function Vine(props) {
         console.log(bottleData);
     }
 
-    console.log('showModal is now ' + showModal);
-
     // FILTERING & SORTING: (based on the passed down filters obj from App.js)
     // Some shorthands:
     const filters = props.filters;

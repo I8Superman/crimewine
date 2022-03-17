@@ -16,8 +16,6 @@ export default function NyFlaske(props) {
 
     function closeModal(e) {
         e.stopPropagation()
-
-        console.log(e.target.dataset.close)
         if (e.target.dataset.close === 'yes') {
             console.log('Modal closed!')
             setShowModal(false);

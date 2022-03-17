@@ -15,10 +15,6 @@ export default function Modal(props) {
 
     const [bounce, setBounce] = useState(0);
 
-    console.log(useContext(BasketContext))
-
-    console.log(props)
-
     // console.log('Modal rendered!')
 
     // Pevent background scrolling while modal is open:
@@ -27,7 +23,7 @@ export default function Modal(props) {
     }
 
     // Basket functions (same as in Vin.js)
-    function adjustQuantity(e, adjustment) { // Using the +/- buttons
+    function adjustQuantity(adjustment) { // Using the +/- buttons
         const newAmount = quantity + adjustment;
         setQuantity(newAmount);
     }
