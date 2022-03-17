@@ -1,10 +1,33 @@
 
+import { useState } from 'react';
+
+import Modal from '../../../Modal/Modal';
+
 export default function NyFlaske(props) {
 
     const bottleData = props.bottleData;
 
+    const [showModal, setShowModal] = useState(false);
+
+    function openModal() {
+        console.log('Model open!')
+        setShowModal(true);
+    }
+
+    function closeModal(e) {
+        e.stopPropagation()
+
+        console.log(e.target.dataset.close)
+        if (e.target.dataset.close === 'yes') {
+            console.log('Modal closed!')
+            setShowModal(false);
+            document.body.style.overflow = 'unset'; // Enables scrolling on the body again
+        }
+    }
+
+
     return (
-        <div className="c-newwine__wines__product">
+        <div className="c-newwine__wines__product" onClick={() => openModal()}>
             <div className="c-newwine__wines__product__image">
                 <img className="c-newwine__wines__product__image__img" src={`images/cropped/${bottleData.img}.png`} alt="" />
                 <div className="c-newwine__wines__product__image__data">
@@ -17,6 +40,7 @@ export default function NyFlaske(props) {
                 <p className="c-newwine__wines__product__text__description">{bottleData.description}</p>
                 <p className="c-newwine__wines__product__text__price">{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
             </div>
+            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} />}
         </div>
     );
 }

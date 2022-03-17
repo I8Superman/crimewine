@@ -21,10 +21,15 @@
         }
 
         &__product {
-            display: flex;
-            gap    : 7%;
-            width  : 100%;
-            padding: 2rem;
+            display   : flex;
+            gap       : 7%;
+            width     : 100%;
+            padding   : 2rem;
+            transition: all 0.3s;
+
+            &:hover {
+                box-shadow: 0px 3px 0.5rem -1px rgba(99, 99, 99, 0.5);
+            }
 
 
             &__image {

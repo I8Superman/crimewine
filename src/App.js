@@ -133,7 +133,7 @@ function App() {
 
   return (
     <div className="c-app">
-      <BasketContext.Provider value={{ basket, setBasket }}>
+      <BasketContext.Provider value={{ basket, setBasket, addToBasket }}>
         <SideNav toggleFilter={toggleFilter} filters={filters} />
         <Logo />
         {basket.length !== 0 && <BasketIcon />}
