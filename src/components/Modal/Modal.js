@@ -9,7 +9,7 @@ import { BasketContext } from '../../contexts/BasketContext';
 
 export default function Modal(props) {
 
-    const { basket, addToBasket } = useContext(BasketContext);
+    const { addToBasket } = useContext(BasketContext);
 
     const [quantity, setQuantity] = useState(1);
 
