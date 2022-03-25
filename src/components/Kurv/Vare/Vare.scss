@@ -2,7 +2,7 @@
 
 .c-vare {
     display              : grid;
-    grid-template-columns: 8% 20% 10% 17% 15% 15% 15%;
+    grid-template-columns: 4% 8% 24% 10% 15% 17% 11% 11%;
     height               : 6rem;
     font-family          : v.$tinos-font;
 
@@ -14,24 +14,38 @@
         justify-content: center;
 
         &:nth-child(1) {
-            padding-left: 2rem;
+            padding-left: 1rem;
         }
 
-        &:nth-child(4) {
-            // text-align: right;
-        }
+        // &:nth-child(4) {
+        //     // text-align: right;
+        // }
 
-        &:nth-child(6) {
-            text-align: right;
-        }
+        // &:nth-child(6) {
+        //     text-align: right;
+        // }
 
-        &:nth-child(7) {
+        // &:nth-child(7) {
+        //     text-align: right;
+        // }
+
+        &:last-child {
             text-align: right;
         }
     }
 
-    &__bottle__img {
-        width: 1.8rem;
+    &__remove {
+        img {
+            width: 100%;
+        }
+    }
+
+    &__bottle {
+        align-items: center;
+
+        &__img {
+            width: 1.8rem;
+        }
     }
 
     &__info {

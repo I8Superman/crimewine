@@ -10,14 +10,12 @@ export default function NyFlaske(props) {
     const [showModal, setShowModal] = useState(false);
 
     function openModal() {
-        console.log('Model open!')
         setShowModal(true);
     }
 
     function closeModal(e) {
         e.stopPropagation()
         if (e.target.dataset.close === 'yes') {
-            console.log('Modal closed!')
             setShowModal(false);
             document.body.style.overflow = 'unset'; // Enables scrolling on the body again
         }

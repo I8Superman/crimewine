@@ -47,13 +47,18 @@ function App() {
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
     const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
-    if (alreadyInBasket === -1) {
+    if (alreadyInBasket === -1) { // If wine NOT in basket, add it and its qty
       const addedItem = {
         ...data,
         qty: qty
-      }
-      setBasket(prevState => [...prevState, addedItem])
-    } else {
+      };
+      setBasket(prevState => [...prevState, addedItem]);
+    } else if (qty === 0) { // If new qty is 0 filter basket and remove wine 
+      const updatedBasket = basket.filter(wine => wine.id !== data.id);
+      console.log(updatedBasket, updatedBasket.length)
+      setBasket(updatedBasket);
+      console.log('Wine removed by settingqty to 0!')
+    } else { // If wine already in basket, update the wine obj qty
       const updatedBasket = basket.map((wine) => {
         if (wine.id === data.id) {
           wine.qty += qty;
@@ -145,7 +150,7 @@ function App() {
           <Route path="/om" element={<Om />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/kig-forbi" element={<KigForbi />} />
-          <Route path="/kurv" element={<Kurv />} />
+          <Route path="/kurv" element={<Kurv addToBasketFunc={addToBasket} />} />
         </Routes>
         {/* </ModalContext.Provider> */}
         <Footer />

@@ -9,13 +9,13 @@ import visa from '../../assets/images/payment-logos/logo-visa.png';
 import { BasketContext } from '../../contexts/BasketContext';
 import Vare from './Vare/Vare';
 
-export default function Kurv() {
+export default function Kurv(props) {
 
     const { basket } = useContext(BasketContext);
     const [totalPrice, setTotalPrice] = useState(0)
 
     const winesInBasket = basket.map((wine) => {
-        return <Vare key={wine.id} basketWineData={wine} />
+        return <Vare key={wine.id} addToBasketFunc={props.addToBasketFunc} basketWineData={wine} />
     })
 
     useEffect(() => {
@@ -28,8 +28,6 @@ export default function Kurv() {
         });
         setTotalPrice(runningTotal);
     }, [basket]);
-
-    console.log('Rendered')
 
     return (
         <div className='c-kurv'>
@@ -44,9 +42,9 @@ export default function Kurv() {
             <div className='c-kurv__headers'>
                 <div className="c-kurv__header">Varer</div>
                 <div className="c-kurv__header">På lager</div>
-                <div className="c-kurv__header">Pris fl. / kasse à 6 fl.</div>
+                <div className="c-kurv__header">Pris fl. / 6 fl.</div>
                 <div className="c-kurv__header">Antal</div>
-                <div className="c-kurv__header">Mængderabat</div>
+                <div className="c-kurv__header">Rabat</div>
                 <div className="c-kurv__header">I alt</div>
             </div>
             <div className="c-kurv__vare-container">

@@ -1,19 +1,18 @@
 import './Vare.scss';
 
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import closeX from '../../../assets/svgs/close-x.svg';
 import minus from '../../../assets/svgs/minus.svg';
 import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 import plus from '../../../assets/svgs/plus.svg';
-import { BasketContext } from '../../../contexts/BasketContext';
-
 
 export default function Vare(props) {
 
-    const { basket, setBasket } = useContext(BasketContext);
+
     const thisWine = props.basketWineData; // Simplifyig the data object name
     const [quantity, setQuantity] = useState(thisWine.qty);
-
+    const addToBasket = props.addToBasketFunc;
     // const identiWine = basket.find(wine => wine.id === thisWine.id);
     // console.log(identiWine.id, 'qty:' + identiWine.qty)
     // console.log('Rendered')
@@ -32,14 +31,12 @@ export default function Vare(props) {
         }
     }
 
+    function removeProduct(event) {
+        setQuantity(0);
+    }
+
     useEffect(() => {
-        const updatedBasket = basket.map((wine) => {
-            if (wine.id === thisWine.id) {
-                wine.qty = quantity;
-            }
-            return wine;
-        });
-        setBasket(updatedBasket);
+        addToBasket(quantity, thisWine)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantity]);
 
@@ -50,6 +47,7 @@ export default function Vare(props) {
 
     return (
         <div className='c-vare'>
+            <div className='c-vare__remove o-col' onClick={(e) => removeProduct(e)}><img src={closeX} alt="" /></div>
             <div className='c-vare__bottle o-col'>
                 <img className='c-vare__bottle__img' src={`images/thumbnails/thumbnail-${thisWine.img}.jpg`} alt="" />
             </div>
