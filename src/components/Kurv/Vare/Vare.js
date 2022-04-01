@@ -6,6 +6,7 @@ import closeX from '../../../assets/svgs/close-x.svg';
 import minus from '../../../assets/svgs/minus.svg';
 import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 import plus from '../../../assets/svgs/plus.svg';
+import Modal from '../../Modal/Modal';
 
 export default function Vare(props) {
 
@@ -13,11 +14,10 @@ export default function Vare(props) {
     const thisWine = props.basketWineData; // Simplifyig the data object name
     const [quantity, setQuantity] = useState(thisWine.qty);
     const addToBasket = props.addToBasketFunc;
-    // const identiWine = basket.find(wine => wine.id === thisWine.id);
-    // console.log(identiWine.id, 'qty:' + identiWine.qty)
-    // console.log('Rendered')
+    const [showModal, setShowModal] = useState(false);
 
-    function adjustQuantity(adjustment) { // Using the +/- buttons
+    function adjustQuantity(e, adjustment) { // Using the +/- buttons
+        e.stopPropagation()
         const newAmount = quantity + adjustment;
         setQuantity(newAmount);
     }
@@ -27,7 +27,7 @@ export default function Vare(props) {
         if (!Number.isNaN(textToNumber)) {
             setQuantity(textToNumber);
         } else {
-            alert('That wasnt a number dude!')
+            alert('Please enter a valid number!')
         }
     }
 
@@ -40,13 +40,27 @@ export default function Vare(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantity]);
 
+    function openModal() {
+        setShowModal(true);
+    }
+
+    function closeModal(e) {
+        e.stopPropagation()
+        if (e.target.dataset.close === 'yes') {
+            setShowModal(false);
+            document.body.style.overflow = 'unset'; // Enables scrolling on the body again
+        }
+    }
+
     const nrOfBoxes = Math.floor(quantity / 6);
     const nrOfBottles = quantity - (nrOfBoxes * 6);
     const total = nrOfBoxes * thisWine.price.box + nrOfBottles * thisWine.price.bottle;
     const discount = quantity * thisWine.price.bottle - total;
 
+    console.log('Vare rendered')
+
     return (
-        <div className='c-vare'>
+        <div className='c-vare' onClick={() => openModal()}>
             <div className='c-vare__remove o-col' onClick={(e) => removeProduct(e)}><img src={closeX} alt="" /></div>
             <div className='c-vare__bottle o-col'>
                 <img className='c-vare__bottle__img' src={`images/thumbnails/thumbnail-${thisWine.img}.jpg`} alt="" />
@@ -60,13 +74,14 @@ export default function Vare(props) {
             <div className='c-vare__price o-col'>{thisWine.price.bottle} / {thisWine.price.box} DKK</div>
             <div className='c-vare__adjust o-col'>
                 <div className='c-vare__adjust'>
-                    <button className='c-vare__adjust__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
-                    <input className='c-vare__adjust__input' type="text" value={quantity} onChange={manualAdjustQty} />
-                    <button className='c-vare__adjust__plus' onClick={() => adjustQuantity(+1)}><img src={plus} alt="" /></button>
+                    <button className='c-vare__adjust__minus' onClick={(e) => adjustQuantity(e, -1)} disabled={quantity <= 1}><img src={quantity <= 1 ? minusDisabled : minus} alt="" /></button>
+                    <input className='c-vare__adjust__input' type="text" value={quantity} onClick={(e) => e.stopPropagation()} onChange={manualAdjustQty} />
+                    <button className='c-vare__adjust__plus' onClick={(e) => adjustQuantity(e, +1)}><img src={plus} alt="" /></button>
                 </div>
             </div>
             <div className='c-vare__discount o-col'>{discount} DKK</div>
             <div className='c-vare__total o-col'>{total} DKK</div>
+            {showModal && <Modal bottleInfo={thisWine} qty={{ quantity, setQuantity, total }} closeModal={(e) => closeModal(e)} openedFromBasket={true} />}
         </div>
     )
 }

@@ -67,7 +67,6 @@
                 margin-top   : auto;
                 margin-bottom: 0.25rem;
                 font-size    : 1.3rem;
-                ;
             }
         }
 
@@ -100,6 +99,7 @@
                     &:hover {
                         background-color: v.$sepia-black;
                         color           : white;
+                        cursor          : pointer;
                     }
                 }
 
@@ -132,7 +132,15 @@
                     &:hover {
                         background-color: v.$sepia-black;
                         color           : white;
+                        cursor          : pointer;
                     }
+                }
+
+                &__price {
+                    margin-top   : auto;
+                    margin-bottom: 0.25rem;
+                    font-size    : 1.3rem;
+                    text-align   : right;
                 }
             }
         }

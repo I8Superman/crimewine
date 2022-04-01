@@ -5,6 +5,11 @@
     grid-template-columns: 4% 8% 24% 10% 15% 17% 11% 11%;
     height               : 6rem;
     font-family          : v.$tinos-font;
+    padding-bottom       : 1rem;
+
+    &:hover {
+        box-shadow: 0px 3px 0.5rem -1px rgba(99, 99, 99, 0.5);
+    }
 
     .o-col {
         // border         : 1px pink solid;
@@ -29,14 +34,15 @@
         //     text-align: right;
         // }
 
-        &:last-child {
-            text-align: right;
-        }
+        // &:last-child {
+        //     text-align: right;
+        // }
     }
 
     &__remove {
         img {
-            width: 100%;
+            width : 0.8rem;
+            cursor: pointer;
         }
     }
 
@@ -49,7 +55,8 @@
     }
 
     &__info {
-        line-height: 1.3rem;
+        font-size  : 0.9rem;
+        line-height: 1.1rem;
 
         &__data,
         &__type {

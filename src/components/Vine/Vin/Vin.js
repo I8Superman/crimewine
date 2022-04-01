@@ -71,7 +71,7 @@ export default function Vin({ bottleData, addToBasketFunc }) {
                     <button className='c-vin__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>
                 </div>
             </div>
-            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} />}
+            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} qty={{ quantity, setQuantity }} openedFromBasket={false} />}
         </>
     );
 }

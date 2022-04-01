@@ -5,9 +5,13 @@ import Modal from '../../../Modal/Modal';
 
 export default function NyFlaske(props) {
 
+    const [quantity, setQuantity] = useState(1);
+
     const bottleData = props.bottleData;
 
     const [showModal, setShowModal] = useState(false);
+
+    console.log(quantity);
 
     function openModal() {
         setShowModal(true);
@@ -20,7 +24,6 @@ export default function NyFlaske(props) {
             document.body.style.overflow = 'unset'; // Enables scrolling on the body again
         }
     }
-
 
     return (
         <div className="c-newwine__wines__product" onClick={() => openModal()}>
@@ -36,7 +39,7 @@ export default function NyFlaske(props) {
                 <p className="c-newwine__wines__product__text__description">{bottleData.description}</p>
                 <p className="c-newwine__wines__product__text__price">{bottleData.price.bottle} / {bottleData.price.box} DKK</p>
             </div>
-            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} />}
+            {showModal && <Modal bottleInfo={bottleData} closeModal={(e) => closeModal(e)} qty={{ quantity, setQuantity }} openedFromBasket={false} />}
         </div>
     );
 }

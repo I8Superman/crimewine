@@ -18,6 +18,7 @@ export default function Kurv(props) {
         return <Vare key={wine.id} addToBasketFunc={props.addToBasketFunc} basketWineData={wine} />
     })
 
+    // This probably don't have to be a useEffect?? Creates too many re-renders!
     useEffect(() => {
         let runningTotal = 0;
         basket.forEach((wine) => {
@@ -28,6 +29,8 @@ export default function Kurv(props) {
         });
         setTotalPrice(runningTotal);
     }, [basket]);
+
+    console.log('kurv rendered')
 
     return (
         <div className='c-kurv'>

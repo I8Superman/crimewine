@@ -11,11 +11,9 @@ export default function Modal(props) {
 
     const { addToBasket } = useContext(BasketContext);
 
-    const [quantity, setQuantity] = useState(1);
+    const { quantity, setQuantity, total } = props.qty;
 
     const [bounce, setBounce] = useState(0);
-
-    // console.log('Modal rendered!')
 
     // Pevent background scrolling while modal is open:
     if (typeof window != 'undefined' && window.document) {
@@ -44,7 +42,7 @@ export default function Modal(props) {
         setQuantity(1); // Resets qty to 1, so previous numbers don't linger
     }
 
-
+    console.log(quantity)
     return (
         createPortal(
             <div className="c-modal" data-close="yes" onClick={props.closeModal}>
@@ -78,7 +76,8 @@ export default function Modal(props) {
                             <button className='c-modal__container__data__ctrls__minus' onClick={() => adjustQuantity(-1)} disabled={quantity <= 1}><p>-</p></button>
                             <input className='c-modal__container__data__ctrls__input' type="text" value={quantity} onChange={manualAdjustQty} />
                             <button className='c-modal__container__data__ctrls__plus' onClick={() => adjustQuantity(+1)}><p>+</p></button>
-                            <button className='c-modal__container__data__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>
+                            {props.openedFromBasket === false && <button className='c-modal__container__data__ctrls__add' onClick={(e) => laegIKurv(e)} onAnimationEnd={() => setBounce(0)} bounce={bounce}>Læg i kurv</button>}
+                            {props.openedFromBasket === true && <div className='c-modal__container__data__ctrls__price'>I alt: {total} DKK</div>}
                         </div>
 
                     </div>

@@ -55,9 +55,7 @@ function App() {
       setBasket(prevState => [...prevState, addedItem]);
     } else if (qty === 0) { // If new qty is 0 filter basket and remove wine 
       const updatedBasket = basket.filter(wine => wine.id !== data.id);
-      console.log(updatedBasket, updatedBasket.length)
       setBasket(updatedBasket);
-      console.log('Wine removed by settingqty to 0!')
     } else { // If wine already in basket, update the wine obj qty
       const updatedBasket = basket.map((wine) => {
         if (wine.id === data.id) {
