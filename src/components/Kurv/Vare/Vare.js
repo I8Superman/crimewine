@@ -1,17 +1,21 @@
 import './Vare.scss';
 
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 import closeX from '../../../assets/svgs/close-x.svg';
 import minus from '../../../assets/svgs/minus.svg';
 import minusDisabled from '../../../assets/svgs/minus-disabled.svg';
 import plus from '../../../assets/svgs/plus.svg';
+import { BasketContext } from '../../../contexts/BasketContext';
 import Modal from '../../Modal/Modal';
 
 export default function Vare(props) {
 
-
+    const { basket, setBasket } = useContext(BasketContext);
     const thisWine = props.basketWineData; // Simplifyig the data object name
+
+
+    console.log('Antal ' + thisWine.name + ': ' + thisWine.qty);
     const [quantity, setQuantity] = useState(thisWine.qty);
     const addToBasket = props.addToBasketFunc;
     const [showModal, setShowModal] = useState(false);
@@ -20,12 +24,20 @@ export default function Vare(props) {
         e.stopPropagation()
         const newAmount = quantity + adjustment;
         setQuantity(newAmount);
+        addToBasket(adjustment, thisWine)
     }
 
     function manualAdjustQty(event) { // Writing it directly in the qty input field
         const textToNumber = Number(event.target.value);
         if (!Number.isNaN(textToNumber)) {
             setQuantity(textToNumber);
+            const updatedBasekt = basket.map((wine) => {
+                if (wine.id === thisWine.id) {
+                    wine.qty = textToNumber;
+                }
+                return wine;
+            });
+            setBasket(updatedBasekt);
         } else {
             alert('Please enter a valid number!')
         }
@@ -35,10 +47,10 @@ export default function Vare(props) {
         setQuantity(0);
     }
 
-    useEffect(() => {
-        addToBasket(quantity, thisWine)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [quantity]);
+    // useEffect(() => {
+    //     addToBasket(quantity, thisWine)
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [quantity]);
 
     function openModal() {
         setShowModal(true);
@@ -57,7 +69,6 @@ export default function Vare(props) {
     const total = nrOfBoxes * thisWine.price.box + nrOfBottles * thisWine.price.bottle;
     const discount = quantity * thisWine.price.bottle - total;
 
-    console.log('Vare rendered')
 
     return (
         <div className='c-vare' onClick={() => openModal()}>

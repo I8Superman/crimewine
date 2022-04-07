@@ -6,9 +6,10 @@
     height               : 6rem;
     font-family          : v.$tinos-font;
     padding-bottom       : 1rem;
+    margin-bottom:      1rem;
 
     &:hover {
-        box-shadow: 0px 3px 0.5rem -1px rgba(99, 99, 99, 0.5);
+        box-shadow: 0px 1px 0.5rem -1px rgba(99, 99, 99, 0.5);
     }
 
     .o-col {
