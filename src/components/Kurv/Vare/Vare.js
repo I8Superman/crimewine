@@ -44,7 +44,9 @@ export default function Vare(props) {
     }
 
     function removeProduct(event) {
+        event.stopPropagation()
         setQuantity(0);
+        addToBasket(quantity, thisWine);
     }
 
     // useEffect(() => {
