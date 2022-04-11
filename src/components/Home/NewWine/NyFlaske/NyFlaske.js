@@ -11,8 +11,6 @@ export default function NyFlaske(props) {
 
     const [showModal, setShowModal] = useState(false);
 
-    console.log(quantity);
-
     function openModal() {
         setShowModal(true);
     }

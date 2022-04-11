@@ -1,6 +1,6 @@
 import './App.scss';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -44,6 +44,11 @@ function App() {
     sort: '',
     sortDir: 'asc'
   });
+
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
     const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
