@@ -1,6 +1,6 @@
 import './Vare.scss';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import closeX from '../../../assets/svgs/close-x.svg';
 import minus from '../../../assets/svgs/minus.svg';
@@ -14,8 +14,6 @@ export default function Vare(props) {
     const { basket, setBasket } = useContext(BasketContext);
     const thisWine = props.basketWineData; // Simplifyig the data object name
 
-
-    console.log('Antal ' + thisWine.name + ': ' + thisWine.qty);
     const [quantity, setQuantity] = useState(thisWine.qty);
     const addToBasket = props.addToBasketFunc;
     const [showModal, setShowModal] = useState(false);
@@ -31,13 +29,13 @@ export default function Vare(props) {
         const textToNumber = Number(event.target.value);
         if (!Number.isNaN(textToNumber)) {
             setQuantity(textToNumber);
-            const updatedBasekt = basket.map((wine) => {
+            const updatedBasket = basket.map((wine) => {
                 if (wine.id === thisWine.id) {
                     wine.qty = textToNumber;
                 }
                 return wine;
             });
-            setBasket(updatedBasekt);
+            setBasket(updatedBasket);
         } else {
             alert('Please enter a valid number!')
         }
@@ -46,13 +44,14 @@ export default function Vare(props) {
     function removeProduct(event) {
         event.stopPropagation()
         setQuantity(0);
-        addToBasket(quantity, thisWine);
     }
 
-    // useEffect(() => {
-    //     addToBasket(quantity, thisWine)
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [quantity]);
+    useEffect(() => {
+        if (quantity === 0) {
+            addToBasket(quantity, thisWine);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [quantity]);
 
     function openModal() {
         setShowModal(true);

@@ -9,6 +9,8 @@ import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home';
 import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
+import Betaling from './components/Kurv/Betaling';
+import Information from './components/Kurv/Information';
 import Kurv from './components/Kurv/Kurv';
 import Logo from './components/Logo/Logo';
 import Nyheder from './components/Nyheder/Nyheder';
@@ -20,7 +22,13 @@ import { BasketContext } from './contexts/BasketContext';
 
 function App() {
 
-  const [basket, setBasket] = useState([]);
+  const [basket, setBasket] = useState(() => {
+    const savedBasket = sessionStorage.getItem("basket");
+    const initialValue = JSON.parse(savedBasket);
+    return initialValue || [];
+  });
+
+
   // const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
     type: {
@@ -47,7 +55,7 @@ function App() {
 
   useEffect(() => {
     // storing input name
-    localStorage.setItem("basket", JSON.stringify(basket));
+    sessionStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
@@ -153,7 +161,11 @@ function App() {
           <Route path="/om" element={<Om />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/kig-forbi" element={<KigForbi />} />
-          <Route path="/kurv" element={<Kurv addToBasketFunc={addToBasket} />} />
+          <Route path="/kurv" element={<Kurv addToBasketFunc={addToBasket} />}>
+            <Route path="information" element={<Information />} >
+              <Route path="information" element={<Betaling />} />
+            </Route>
+          </Route>
         </Routes>
         {/* </ModalContext.Provider> */}
         <Footer />

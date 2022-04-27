@@ -1,6 +1,7 @@
 import './Kurv.scss';
 
 import { useContext, useEffect, useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import dankort from '../../assets/images/payment-logos/logo-dankort.png';
 import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
@@ -77,6 +78,7 @@ export default function Kurv(props) {
                     <button className='c-kurv__summary__ordering__go-to order-button'>Til bestilling</button>
                 </div>
             </div>
+            <Outlet />
         </div>
 
 
