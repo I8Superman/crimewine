@@ -1,41 +1,38 @@
-import './Kurv.scss';
+import { useContext, useEffect, useState } from 'react';
+import { Fragment } from "react/cjs/react.production.min";
 
-// import { useContext, useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import dankort from '../../assets/images/payment-logos/logo-dankort.png';
+import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
+import mobilePay from '../../assets/images/payment-logos/logo-mobile-pay.png';
+import visa from '../../assets/images/payment-logos/logo-visa.png';
+import { BasketContext } from '../../contexts/BasketContext';
+import Vare from './Vare/Vare';
 
-// import dankort from '../../assets/images/payment-logos/logo-dankort.png';
-// import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
-// import mobilePay from '../../assets/images/payment-logos/logo-mobile-pay.png';
-// import visa from '../../assets/images/payment-logos/logo-visa.png';
-// import { BasketContext } from '../../contexts/BasketContext';
-// import Vare from './Vare/Vare';
+export default function Oversigt(props) {
+    const { basket } = useContext(BasketContext);
+    const [totalPrice, setTotalPrice] = useState(0)
 
-export default function Kurv(props) {
-    // const { basket } = useContext(BasketContext);
-    // const [totalPrice, setTotalPrice] = useState(0)
+    const winesInBasket = basket.map((wine) => {
+        return <Vare key={wine.id} addToBasketFunc={props.addToBasketFunc} basketWineData={wine} />
+    })
 
-    // const winesInBasket = basket.map((wine) => {
-    //     return <Vare key={wine.id} addToBasketFunc={props.addToBasketFunc} basketWineData={wine} />
-    // })
+    // This probably don't have to be a useEffect?? Creates too many re-renders!
+    useEffect(() => {
+        let runningTotal = 0;
+        basket.forEach((wine) => {
+            const nrOfBoxes = Math.floor(wine.qty / 6);
+            const nrOfBottles = wine.qty - (nrOfBoxes * 6);
+            const total = nrOfBoxes * wine.price.box + nrOfBottles * wine.price.bottle;
+            runningTotal = runningTotal + total;
+        });
+        setTotalPrice(runningTotal);
+    }, [basket]);
 
-    // // This probably don't have to be a useEffect?? Creates too many re-renders!
-    // useEffect(() => {
-    //     let runningTotal = 0;
-    //     basket.forEach((wine) => {
-    //         const nrOfBoxes = Math.floor(wine.qty / 6);
-    //         const nrOfBottles = wine.qty - (nrOfBoxes * 6);
-    //         const total = nrOfBoxes * wine.price.box + nrOfBottles * wine.price.bottle;
-    //         runningTotal = runningTotal + total;
-    //     });
-    //     setTotalPrice(runningTotal);
-    // }, [basket]);
-
-    console.log('kurv rendered')
+    console.log('Oversigt rendered');
 
     return (
-        <div className='c-kurv'>
-            <Outlet />
-            {/* <div className="c-kurv__breadcrumbs-and-order-btn">
+        <Fragment>
+            <div className="c-kurv__breadcrumbs-and-order-btn">
                 <div className="c-kurv__breadcrumbs">
                     <p className='c-kurv__breadcrumbs__indkøbskurv'>Indkøbskurv</p>
                     <p className='c-kurv__breadcrumbs__information'>{'> Information og forsendelse'}</p>
@@ -77,9 +74,7 @@ export default function Kurv(props) {
                     </div>
                     <button className='c-kurv__summary__ordering__go-to order-button'>Til bestilling</button>
                 </div>
-            </div> */}
-        </div>
-
-
+            </div>
+        </Fragment>
     )
 }

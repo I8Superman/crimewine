@@ -10,7 +10,6 @@ import { BasketContext } from '../../../contexts/BasketContext';
 import Modal from '../../Modal/Modal';
 
 export default function Vare(props) {
-
     const { basket, setBasket } = useContext(BasketContext);
     const thisWine = props.basketWineData; // Simplifyig the data object name
 
@@ -49,6 +48,7 @@ export default function Vare(props) {
     useEffect(() => {
         if (quantity === 0) {
             addToBasket(quantity, thisWine);
+            console.log('addToBasket ran from Vare.js')
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantity]);

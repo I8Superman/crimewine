@@ -9,7 +9,7 @@ import { BasketContext } from '../../contexts/BasketContext';
 
 export default function Modal(props) {
 
-    const { addToBasket } = useContext(BasketContext);
+    const { addToBasket, setBasket, basket } = useContext(BasketContext);
 
     const { quantity, setQuantity, total } = props.qty;
 
@@ -24,12 +24,24 @@ export default function Modal(props) {
     function adjustQuantity(adjustment) { // Using the +/- buttons
         const newAmount = quantity + adjustment;
         setQuantity(newAmount);
+        if (props.openedFromBasket === true) {
+            addToBasket(adjustment, props.bottleInfo);
+        }
     }
 
     function manualAdjustQty(event) { // Writing it directly in the qty input field
         const textToNumber = Number(event.target.value);
         if (!Number.isNaN(textToNumber)) { // Check is pressed key is (not not) a number
             setQuantity(textToNumber);
+            if (props.openedFromBasket === true) {
+                const updatedBasket = basket.map((wine) => {
+                    if (wine.id === props.bottleInfo.id) {
+                        wine.qty = textToNumber;
+                    }
+                    return wine;
+                });
+                setBasket(updatedBasket);
+            }
         } else {
             alert('That wasnt a number dude!')
         }
@@ -44,6 +56,7 @@ export default function Modal(props) {
 
     console.log(quantity)
     return (
+        // createPortal lets the element pop out of the regular HTML flow and be shown on top of everything else, no matter its placement in the hierarchy
         createPortal(
             <div className="c-modal" data-close="yes" onClick={props.closeModal}>
                 <div className="c-modal__container">

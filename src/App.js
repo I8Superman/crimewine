@@ -10,8 +10,9 @@ import Home from './components/Home/Home';
 import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
 import Betaling from './components/Kurv/Betaling';
-import Information from './components/Kurv/Information';
+import Forsendelse from './components/Kurv/Forsendelse';
 import Kurv from './components/Kurv/Kurv';
+import Oversigt from './components/Kurv/Oversigt'
 import Logo from './components/Logo/Logo';
 import Nyheder from './components/Nyheder/Nyheder';
 import Om from './components/Om/Om';
@@ -162,9 +163,9 @@ function App() {
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/kig-forbi" element={<KigForbi />} />
           <Route path="/kurv" element={<Kurv addToBasketFunc={addToBasket} />}>
-            <Route path="information" element={<Information />} >
-              <Route path="information" element={<Betaling />} />
-            </Route>
+            <Route index element={<Oversigt addToBasketFunc={addToBasket} />} />
+            <Route path="forsendelse" element={<Forsendelse />} />
+            <Route path="betaling" element={<Betaling />} />
           </Route>
         </Routes>
         {/* </ModalContext.Provider> */}
