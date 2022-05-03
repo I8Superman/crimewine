@@ -1,1 +1,72 @@
 @use '../../global-styles/forwarder.scss'as v;
+
+.c-shipping {
+    width                : 100vw;
+    height               : 100vh;
+    display              : grid;
+    grid-template-columns: v.$desktop-grid;
+    grid-template-rows   : 5rem 5rem 3rem 54% 10rem;
+    gap                  : 0.5rem 20px;
+
+    &__breadcrumbs-and-order-btn {
+        // border         : 1px green solid;
+        grid-column    : 4 / 13;
+        grid-row       : 2;
+        height         : 3rem;
+        vertical-align : bottom;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
+    &__breadcrumbs {
+        display    : flex;
+        font-family: v.$tinos-font;
+        color      : v.$dark-grey;
+
+        p {
+            margin-right: 0.5rem;
+        }
+    }
+
+
+    form {
+        grid-column             : 4 / 13;
+        grid-row                : 3;
+        display                 : flex;
+        // grid-template-columns: 48% 48%;
+        gap                     : 1rem;
+
+
+        .c-shipping__header {
+            font-family  : v.$tinos-font;
+            margin-bottom: 3rem;
+        }
+
+        .customer-info {
+            border   : 1px red solid;
+            flex     : 0 1 100%;
+            display  : flex;
+            flex-wrap: wrap;
+            gap      : 1rem;
+
+            .form-field {
+                height: 2.8rem;
+            }
+
+            .full-width {
+                flex: 1 0 90%
+            }
+
+            .half-width {
+                flex: 1 0 45%;
+            }
+        }
+
+        .shipping-options {
+            border: 1px red solid;
+            flex  : 0 1 100%;
+
+        }
+    }
+}
