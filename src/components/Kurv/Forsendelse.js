@@ -11,8 +11,8 @@ export default function Forsendelse(props) {
                 </div>
             </div>
             <form action="">
-                <div className="customer-info">
-                    <h3 className='c-shipping__header'>Adresseoplysninger</h3>
+                <fieldset className="customer-info">
+                    <h3 className='customer-info__header'>Adresseoplysninger</h3>
                     <select className={'form-field full-width'} name="customertype" id="">
                         <option value="private">Privat</option>
                         <option value="company">Virksomhed</option>
@@ -26,39 +26,46 @@ export default function Forsendelse(props) {
                     <input className={'form-field half-width'} type="text" name="city" Placeholder="By" />
                     <input className={'form-field half-width'} type="text" name="country" Placeholder="Land" />
                     <input className={'form-field half-width'} type="tel" name="phonenumber" Placeholder="Telefonnummer" />
-                    <textarea className={'form-field full-width'} name="comments" Placeholder="Kommentarer til din ordre" />
-                </div>
-                <div className="shipping-options">
-                    <h3 className='c-shipping__header'>Forsendelse</h3>
-                    <div className='shipping-option'>
-                        <input type="radio" name="" id="" />
-                        <div classname="option-text">
-                            <h3 classname='option-title'>GLS PAkkeshop</h3>
-                            <p className='option-notes'>Nogle noter angående denne forsendelsesmetode</p>
+                    <textarea className={'comments full-width'} name="comments" Placeholder="Kommentarer til din ordre" />
+                </fieldset>
+                <fieldset className="shipping-options">
+                    <h3 className='shipping-options__header'>Forsendelse</h3>
+                    <label className='shipping-option' htmlFor='radio'>
+                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" checked />
+                        <div className="option-text">
+                            <h3 className='option-title'>GLS Pakkeshop</h3>
+                            <p className='option-notes'>Levering til GLS pakkeshop i nærheden af din adresse</p>
                         </div>
-                    </div>
-                    <div className='shipping-option'>
-                        <input type="radio" name="" id="" />
-                        <div classname="option-text">
-                            <h3 classname='option-title'>GLS PAkkeshop</h3>
-                            <p className='option-notes'>Nogle noter angående denne forsendelsesmetode</p>
+                        <p className='shipping-cost'>39,00 DKK</p>
+                    </label>
+                    <label className='shipping-option' htmlFor='radio'>
+                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
+                        <div className="option-text">
+                            <h3 className='option-title'>GLS Levering til dør</h3>
+                            <p className='option-notes'>Så er du fri for at skulle ud af døren!</p>
                         </div>
-                    </div>
-                    <div className='shipping-option'>
-                        <input type="radio" name="" id="" />
-                        <div classname="option-text">
-                            <h3 classname='option-title'>GLS PAkkeshop</h3>
-                            <p className='option-notes'>Nogle noter angående denne forsendelsesmetode</p>
+                        <p className='shipping-cost'>59,00 DKK</p>
+                    </label>
+                    <label className='shipping-option' htmlFor='radio'>
+                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
+                        <div className="option-text">
+                            <h3 className='option-title'>Afhentning i Valby</h3>
+                            <p className='option-notes'>Kom forbi i vores åbningstid eller ring/skriv og lav
+                                en aftale med os om afhentning.</p>
                         </div>
-                    </div>
-                    <div className='shipping-option'>
-                        <input type="radio" name="" id="" />
-                        <div classname="option-text">
-                            <h3 classname='option-title'>GLS PAkkeshop</h3>
-                            <p className='option-notes'>Nogle noter angående denne forsendelsesmetode</p>
+                        <p className='shipping-cost'>0,00 DKK</p>
+                    </label>
+                    <label className='shipping-option' htmlFor='radio'>
+                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
+                        <div className="option-text">
+                            <h3 className='option-title'>Særlig aftale</h3>
+                            <p className='option-notes'>I særlige tilfælde bringer vi selv din vin ud. Fx til ældre
+                                og gangbesværede, eller hvis du står og skal bruge nogle
+                                flasker akut til et arrangement. Ring eller skriv og hør os ad.</p>
                         </div>
-                    </div>
-                </div>
+                        <p className='shipping-cost'>0,00 DKK</p>
+                    </label>
+                </fieldset>
                 {/* <input type="submit" name="Haarr" /> */}
             </form>
 

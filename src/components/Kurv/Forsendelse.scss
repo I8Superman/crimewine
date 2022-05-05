@@ -37,35 +37,119 @@
         // grid-template-columns: 48% 48%;
         gap                     : 1rem;
 
-
-        .c-shipping__header {
-            font-family  : v.$tinos-font;
-            margin-bottom: 3rem;
-        }
-
         .customer-info {
-            border   : 1px red solid;
+            border   : none;
+            height   : fit-content;
             flex     : 0 1 100%;
             display  : flex;
             flex-wrap: wrap;
             gap      : 1rem;
+
+            &__header {
+                font-family  : v.$tinos-font;
+                margin-bottom: 2rem;
+            }
 
             .form-field {
                 height: 2.8rem;
             }
 
             .full-width {
-                flex: 1 0 90%
+                flex: 0 1 100%
             }
 
             .half-width {
                 flex: 1 0 45%;
             }
+
+            .comments {
+                height: 5rem;
+            }
         }
 
         .shipping-options {
-            border: 1px red solid;
             flex  : 0 1 100%;
+            border: none;
+            height: fit-content;
+
+            &__header {
+                font-family  : v.$tinos-font;
+                margin-bottom: 3rem;
+            }
+
+            .shipping-option {
+                border       : 1px solid v.$sepia-black;
+                border-bottom: none;
+                display      : flex;
+
+                &:last-child {
+                    border-bottom: 1px solid v.$sepia-black;
+                }
+
+                input[type="radio"] {
+                    // Make unwieldly button dissapear:
+                    appearance      : none;
+                    // Margin is not reset with the apearance property
+                    margin          : 0;
+                    // And then style it anew
+                    background-color: white;
+                    font            : inherit;
+                    color           : v.$sepia-black;
+                    width           : 1.2rem;
+                    height          : 1.2rem;
+                    border          : 0.1rem solid v.$sepia-black;
+                    border-radius   : 50%;
+                    margin          : 1.1rem 0 0 1rem;
+                    display         : grid;
+                    place-content   : center;
+                    transition      : all 0.3s;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+
+                    // Make the selected dot with a pseudo element
+                    &::before {
+                        content         : "";
+                        width           : 0.7rem;
+                        height          : 0.7rem;
+                        border-radius   : 50%;
+                        transform       : scale(0); // Makes it invisible
+                        transition      : 120ms transform ease-in-out;
+                        background-color: v.$sepia-black;
+                        // As backgrounds will not show up when printed, you
+                        // may use box-shadow instead
+                        // box-shadow   : inset 1em 1em rgb(56, 43, 43);
+                    }
+
+                    // When checked, the ::before element transitions to scale 1: 
+                    &:checked::before {
+                        transform: scale(1);
+                    }
+                }
+
+
+                .option-text {
+                    flex   : 1;
+                    padding: 1rem;
+
+
+                    .option-title {
+                        font-family  : v.$tinos-font;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .option-notes {
+                        font-family: v.$tinos-font;
+                    }
+                }
+
+                .shipping-cost {
+                    padding: 1rem;
+
+                }
+            }
+
 
         }
     }
