@@ -27,15 +27,24 @@
         p {
             margin-right: 0.5rem;
         }
+
+        &__submit-button-top {
+            border             : none;
+            font-family        : v.$tinos-font;
+            color              : white;
+            // font-weight     : bold;
+            font-size          : 1rem;
+            background-color   : v.$sepia-black;
+            padding            : 0.5rem 1rem 0.5rem 1rem;
+        }
     }
 
-
     form {
-        grid-column             : 4 / 13;
-        grid-row                : 3;
-        display                 : flex;
-        // grid-template-columns: 48% 48%;
-        gap                     : 1rem;
+        grid-column: 4 / 13;
+        grid-row   : 3 / 6;
+        display    : flex;
+        height     : auto;
+        gap        : 1rem;
 
         .customer-info {
             border   : none;
@@ -85,16 +94,16 @@
                     outline         : 2px solid transparent;
 
                     &:focus {
-                        outline: 1px rgb(120, 123, 255) solid;
+                        outline: 2px rgb(120, 123, 255) solid;
                     }
 
                     // Triggers when placeholder NOT shown -> user has entered some text
                     &:valid:not(:placeholder-shown, :focus) {
-                        outline: 1px rgb(68, 246, 89) solid;
+                        outline: 2px rgb(68, 246, 89) solid;
                     }
 
                     &:invalid:not(:placeholder-shown, :focus) {
-                        outline: 1px rgb(244, 49, 49) solid;
+                        outline: 2px rgb(244, 49, 49) solid;
                     }
 
                     &:invalid:not(:placeholder-shown, :focus)+.error {
@@ -129,11 +138,13 @@
                     clip-path       : polygon(100% 0%, 0 0%, 50% 100%);
                 }
 
-
-
                 .select-input {
                     // Removes default styling from select elem
                     appearance: none;
+
+                    &:valid:not(:focus) {
+                        outline: 2px transparent solid;
+                    }
                 }
             }
 
@@ -152,9 +163,12 @@
         }
 
         .shipping-options {
-            flex  : 0 1 100%;
-            border: none;
-            height: fit-content;
+            flex          : 0 1 100%;
+            border        : none;
+            height        : fit-content;
+            display       : flex;
+            flex-direction: column;
+            align-items   : flex-start;
 
             &__header {
                 font-family  : v.$tinos-font;
@@ -166,7 +180,7 @@
                 border-bottom: none;
                 display      : flex;
 
-                &:last-child {
+                &:nth-child(5) {
                     border-bottom: 1px solid v.$sepia-black;
                 }
 
@@ -236,7 +250,19 @@
                 }
             }
 
-
         }
+    }
+
+    .shipping-options__submit-button-bottom {
+
+        border             : none;
+        font-family        : v.$tinos-font;
+        color              : white;
+        // font-weight     : bold;
+        font-size          : 1rem;
+        background-color   : v.$sepia-black;
+        padding            : 0.5rem 1rem 0.5rem 1rem;
+        margin-top         : 0.5rem;
+        align-self         : flex-end;
     }
 }
