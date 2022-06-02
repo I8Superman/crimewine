@@ -19,6 +19,7 @@ import Om from './components/Om/Om';
 import SideNav from './components/SideNav/SideNav';
 import Vine from './components/Vine/Vine';
 import { BasketContext } from './contexts/BasketContext';
+// import { OrderContext } from './contexts/OrderContext';
 // import { ModalContext } from './contexts/ModalContext';
 
 function App() {
@@ -28,6 +29,12 @@ function App() {
     const initialValue = JSON.parse(savedBasket);
     return initialValue || [];
   });
+
+  // const [order, setOrder] = useState(() => {
+  //   const savedOrder = sessionStorage.getItem("order");
+  //   const initialValue = JSON.parse(savedOrder);
+  //   return initialValue || [];
+  // })
 
 
   // const [showModal, setShowModal] = useState(false);
@@ -58,6 +65,11 @@ function App() {
     // storing input name
     sessionStorage.setItem("basket", JSON.stringify(basket));
   }, [basket]);
+
+  // useEffect(() => {
+  //   // storing input name
+  //   sessionStorage.setItem("order", JSON.stringify(order));
+  // }, [order]);
 
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
     const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
@@ -171,7 +183,7 @@ function App() {
         {/* </ModalContext.Provider> */}
         <Footer />
       </BasketContext.Provider>
-    </div>
+    </div >
   );
 }
 

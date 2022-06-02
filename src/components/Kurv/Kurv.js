@@ -1,83 +1,48 @@
 import './Kurv.scss';
 
 // import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-// import dankort from '../../assets/images/payment-logos/logo-dankort.png';
-// import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
-// import mobilePay from '../../assets/images/payment-logos/logo-mobile-pay.png';
-// import visa from '../../assets/images/payment-logos/logo-visa.png';
-// import { BasketContext } from '../../contexts/BasketContext';
-// import Vare from './Vare/Vare';
+// import { OrderContext } from '../../contexts/OrderContext';
+// import Betaling from './Betaling';
+// import Forsendelse from './Forsendelse';
+// import Oversigt from './Oversigt'
 
 export default function Kurv(props) {
-    // const { basket } = useContext(BasketContext);
-    // const [totalPrice, setTotalPrice] = useState(0)
 
-    // const winesInBasket = basket.map((wine) => {
-    //     return <Vare key={wine.id} addToBasketFunc={props.addToBasketFunc} basketWineData={wine} />
-    // })
+    const [order, setOrder] = useState({
+        customerType: 'private',
+        email: '',
+        firstName: '',
+        lastName: '',
+        address: '',
+        zipcode: '',
+        city: '',
+        country: '',
+        phone: '',
+        notes: '',
+        shippingOption: {
+            method: '',
+            optionalPickup: {
+                place: 'Slikland Valby',
+                address: 'Toftegårds Allé 9a, 2500 Valby'
+            }
+        }
+    });
 
-    // // This probably don't have to be a useEffect?? Creates too many re-renders!
-    // useEffect(() => {
-    //     let runningTotal = 0;
-    //     basket.forEach((wine) => {
-    //         const nrOfBoxes = Math.floor(wine.qty / 6);
-    //         const nrOfBottles = wine.qty - (nrOfBoxes * 6);
-    //         const total = nrOfBoxes * wine.price.box + nrOfBottles * wine.price.bottle;
-    //         runningTotal = runningTotal + total;
-    //     });
-    //     setTotalPrice(runningTotal);
-    // }, [basket]);
+    // const [order, setOrder] = useState(() => {
+    //     const savedOrder = sessionStorage.getItem("order");
+    //     const initialValue = JSON.parse(savedOrder);
+    //     return initialValue || [];
+    //   })
 
     console.log('kurv rendered')
 
     return (
         <div className='c-kurv'>
-            <Outlet />
-            {/* <div className="c-kurv__breadcrumbs-and-order-btn">
-                <div className="c-kurv__breadcrumbs">
-                    <p className='c-kurv__breadcrumbs__indkøbskurv'>Indkøbskurv</p>
-                    <p className='c-kurv__breadcrumbs__information'>{'> Information og forsendelse'}</p>
-                    <p className='c-kurv__breadcrumbs__betal'>{'> Godkend og betal'}</p>
-                </div>
-                <button className='c-kurv__summary__ordering__go-to__top order-button'>Til bestilling</button>
-            </div>
-            <div className='c-kurv__headers'>
-                <div className="c-kurv__header">Varer</div>
-                <div className="c-kurv__header">På lager</div>
-                <div className="c-kurv__header">Pris fl. / 6 fl.</div>
-                <div className="c-kurv__header">Antal</div>
-                <div className="c-kurv__header">Rabat</div>
-                <div className="c-kurv__header">I alt</div>
-            </div>
-            <div className="c-kurv__vare-container">
-                {winesInBasket}
-            </div>
-            <div className="c-kurv__summary">
-                <div className="c-kurv__summary__amount">
-                    <p className="c-kurv__summary__amount__text">Samlet beløb:</p>
-                    <p className="c-kurv__summary__amount__number">{totalPrice} DKK</p>
-                </div>
-                <div className="c-kurv__summary__tax">
-                    <p className="c-kurv__summary__tax__text">Heraf moms:</p>
-                    <p className="c-kurv__summary__tax__number">{(totalPrice * 0.25).toFixed(2)} DKK</p>
-                </div>
-                <div className="c-kurv__summary__total">
-                    <p className="c-kurv__summary__total__text">Total:</p>
-                    <p className="c-kurv__summary__total__number">{totalPrice} DKK</p>
-                </div>
-                <div className="c-kurv__summary__ordering">
-                    <div className='c-kurv__summary__ordering__accept'>
-                        <p>Vi tager imod:</p>
-                        <img className='c-kurv__summary__ordering__accept__payment-logo' src={dankort} alt="" />
-                        <img className='c-kurv__summary__ordering__accept__payment-logo' src={visa} alt="" />
-                        <img className='c-kurv__summary__ordering__accept__payment-logo' src={mastercard} alt="" />
-                        <img className='c-kurv__summary__ordering__accept__payment-logo' src={mobilePay} alt="" />
-                    </div>
-                    <button className='c-kurv__summary__ordering__go-to order-button'>Til bestilling</button>
-                </div>
-            </div> */}
+            {/* Outlet has a built-in context and provider function! Let's you pass useState const's directly to all paths in the Outlet */}
+            <Outlet context={[order, setOrder]} />
         </div>
 
 

@@ -1,41 +1,38 @@
 import './Forsendelse.scss';
 
-import { useRef, useState } from 'react';
+// import { useContext, useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
+
+// import { OrderContext } from '../../contexts/OrderContext';
 
 export default function Forsendelse(props) {
 
-    // const [currentFocus, setCurrentFocus] = useState('');
+    const [order, setOrder] = useOutletContext();
 
-    const emailRef = useRef(null);
-    const firstNameRef = useRef(null);
-    const lastNameRef = useRef(null);
-
-    const [shippingFormData, setShippingFormData] = useState({
-        customerType: 'private',
-        email: '',
-        firstName: '',
-        lastName: '',
-        address: '',
-        zipcode: '',
-        city: '',
-        country: '',
-        phone: '',
-        notes: ''
-    });
-
-    // function applyFocus(e) { // Should this be done with refs (useRef) instead??
-    //     console.log(e.currentTarget.children[0])
-    //     const currentDiv = e.currentTarget.dataset.name;
-    //     setCurrentFocus(currentDiv);
-    //     // Targets the second child of the parent div - the actual input
-    //     // and focuses it, so the cursor will show up in the input field even if you click the parent
-    //     e.currentTarget.children[1].focus();
-    // }
+    // const [order, setorder] = useState({
+    //     customerType: 'private',
+    //     email: '',
+    //     firstName: '',
+    //     lastName: '',
+    //     address: '',
+    //     zipcode: '',
+    //     city: '',
+    //     country: '',
+    //     phone: '',
+    //     notes: '',
+    //     shippingOption: {
+    //         method: '',
+    //         optionalPickup: {
+    //             place: 'Slikland Valby',
+    //             address: 'Toftegårds Allé 9a, 2500 Valby'
+    //         }
+    //     }
+    // });
 
     function handleChange(e) {
         const validity = e.target.checkValidity();
         console.log(validity);
-        setShippingFormData(prevFormData => {
+        setOrder(prevFormData => {
             return {
                 ...prevFormData,
                 [e.target.name]: e.target.value
@@ -43,13 +40,30 @@ export default function Forsendelse(props) {
         });
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.table(shippingFormData);
-        alert(JSON.stringify(shippingFormData));
+    function changePickup(e) {
+        e.stopPropagation();
+        const place = e.currentTarget.children[0].textContent;
+        const address = e.currentTarget.children[1].textContent;
+        setOrder(prevFormData => {
+            return {
+                ...prevFormData,
+                shippingOption: {
+                    optionalPickup: {
+                        place: place,
+                        address: address
+                    }
+                }
+            }
+        })
     }
 
-    console.log(shippingFormData)
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.table(order);
+        alert(JSON.stringify(order));
+    }
+
+    console.log(order)
 
     return (
         <div className="c-shipping">
@@ -75,17 +89,17 @@ export default function Forsendelse(props) {
                     </div>
                     <div className={'input-container full-width'}>
                         <label htmlFor="email">E-mail*</label>
-                        <input ref={emailRef} className='form-input' type="email" id='email' name='email' value={shippingFormData.email} onChange={handleChange} placeholder="&nbsp;" pattern='(.+)@(.+)\.(.){2,4}' required />
+                        <input className='form-input' type="email" id='email' name='email' value={order.email} onChange={handleChange} placeholder="&nbsp;" pattern='(.+)@(.+)\.(.){2,4}' required />
                         <span className="error" id="err-mail" aria-live="assertive">Skriv en korrekt email-adresse</span>
                     </div>
                     <div className={'input-container half-width'}>
                         <label htmlFor="firstname">Fornavn*</label>
-                        <input ref={firstNameRef} className='form-input' type="text" name="firstName" id='firstname' value={shippingFormData.firstName} onChange={handleChange} placeholder="&nbsp;" pattern='^[A-Z]\w*' required />
+                        <input className='form-input' type="text" name="firstName" id='firstname' value={order.firstName} onChange={handleChange} placeholder="&nbsp;" pattern='^[A-Z]\w*' required />
                         <span className="error" id="err-mail" aria-live="assertive">Husk: første bogstav med stort!</span>
                     </div>
                     <div className={'input-container half-width'}>
                         <label htmlFor="lastname">Efternavn*</label>
-                        <input ref={lastNameRef} className='form-input' type="text" name="lastName" id='lastname' value={shippingFormData.lastName} onChange={handleChange} placeholder="&nbsp;" pattern='^[A-Z]\w*' required />
+                        <input className='form-input' type="text" name="lastName" id='lastname' value={order.lastName} onChange={handleChange} placeholder="&nbsp;" pattern='^[A-Z]\w*' required />
                         <span className="error" id="err-lastname" aria-live="assertive">Husk: første bogstav med stort!</span>
                     </div>
                     <div className={'input-container full-width'}>
@@ -125,6 +139,40 @@ export default function Forsendelse(props) {
                         <div className="option-text">
                             <h3 className='option-title'>GLS Pakkeshop</h3>
                             <p className='option-notes'>Levering til GLS pakkeshop i nærheden af din adresse</p>
+                            <div className="pickup-options">
+                                <p className='pickup-name'><b>{order.shippingOption.optionalPickup.place}</b></p>
+                                <p className='pickup-adress'>{order.shippingOption.optionalPickup.address}</p>
+                                <div className="dropdown">
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Slikland Valby</p>
+                                        <p className='pickup-adress'>Toftegårds Allé 9a, 2500 Valby</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Superkiosken Vesterbro</p>
+                                        <p className='pickup-adress'>Vesterbrogade 77, 1600 Vesterbro</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Kiosk 44 Valby</p>
+                                        <p className='pickup-adress'>Valby Langgade 44, 2500 Valby</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Badutspring Børne-gear</p>
+                                        <p className='pickup-adress'>Vigerslev Allé 31, 2500 Valby</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>HentNu Pakkeshop</p>
+                                        <p className='pickup-adress'>Ålekistevej 134, 2700 Vanløse</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Rak & Pak </p>
+                                        <p className='pickup-adress'>Kistegade 45, 1666 Vesterbro</p>
+                                    </div>
+                                    <div className="pickup-option" onClick={e => changePickup(e)}>
+                                        <p className='pickup-name'>Postnord Posthus</p>
+                                        <p className='pickup-adress'>Superbrugsen i Spinderiet, Torvet 3, 2500 Valby</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <p className='shipping-cost'>39,00 DKK</p>
                     </label>

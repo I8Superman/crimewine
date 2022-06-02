@@ -168,7 +168,7 @@
             height        : fit-content;
             display       : flex;
             flex-direction: column;
-            align-items   : flex-start;
+            align-items   : stretch;
 
             &__header {
                 font-family  : v.$tinos-font;
@@ -203,8 +203,7 @@
                     transition      : all 0.3s;
 
                     &:hover {
-                        transform       : scale(1.2);
-                        background-color: ghostwhite;
+                        transform: scale(1.2);
                     }
 
                     // Make the selected dot with a pseudo element
@@ -239,8 +238,73 @@
                     }
 
                     .option-notes {
-                        font-family: v.$tinos-font;
-                        color      : v.$dark-grey;
+                        font-family  : v.$tinos-font;
+                        color        : v.$dark-grey;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .pickup-options {
+                        position           : relative;
+                        border             : 1px solid v.$sepia-black;
+                        padding            : 0.3rem;
+                        display            : grid;
+                        grid-template-areas: "dropdown";
+                        @include v.paragraph;
+
+                        .pickup-options,
+                        &::after {
+                            grid-area: dropdown;
+                        }
+
+                        &::after {
+                            content         : "";
+                            position        : absolute;
+                            justify-self    : end;
+                            width           : 0.8em;
+                            height          : 0.5em;
+                            margin          : 1.5rem 0.5rem 0.3rem 0.3rem;
+                            background-color: v.$dark-grey;
+                            clip-path       : polygon(100% 0%, 0 0%, 50% 100%);
+                            align-self      : center;
+                        }
+
+                        .dropdown {
+                            position        : absolute;
+                            display         : none;
+                            border          : 1px solid v.$sepia-black;
+                            width           : 100%;
+                            height          : 500%;
+                            top             : 2rem;
+                            background-color: white;
+                            padding         : 0.3rem;
+                            margin-top      : 0.5rem;
+                            box-shadow      : 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                            z-index         : 1;
+                            transition      : all 0.3s;
+                            overflow-y      : scroll;
+
+                            .pickup-option {
+                                color              : v.$dark-grey;
+                                margin-bottom      : 0.5rem;
+                                padding            : 0.3rem 0 0.3rem 0;
+                                // line-height     : 1.3rem;
+                                // font-family  : v.$tinos-font;
+
+                                p:first-child {
+                                    font-weight: 700;
+                                }
+
+                                &:hover {
+                                    color           : v.$sepia-black;
+                                    background-color: rgb(243, 243, 243);
+                                }
+                            }
+
+                        }
+                    }
+
+                    .pickup-options:hover .dropdown {
+                        display: block;
                     }
                 }
 
@@ -262,7 +326,7 @@
         font-size          : 1rem;
         background-color   : v.$sepia-black;
         padding            : 0.5rem 1rem 0.5rem 1rem;
-        margin-top         : 0.5rem;
+        margin-top         : 2rem;
         align-self         : flex-end;
     }
 }

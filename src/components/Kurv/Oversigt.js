@@ -31,6 +31,7 @@ export default function Oversigt(props) {
 
     console.log('Oversigt rendered');
 
+
     return (
         <div className='c-oversigt'>
             <div className="c-oversigt__breadcrumbs-and-order-btn">
