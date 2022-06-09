@@ -7,6 +7,12 @@
     display       : flex;
     flex-direction: column;
     align-items   : center;
+    transition    : all 0.3s;
+    padding       : 0.5rem;
+
+    &:hover {
+        box-shadow: 0px 3px 0.5rem -1px rgba(99, 99, 99, 0.5);
+    }
 
     &__img {
         height       : 17rem;
@@ -18,6 +24,8 @@
         position       : absolute;
         height         : 5rem;
         top            : 25%;
+        padding-left   : 0.5rem;
+        padding-right  : 0.5rem;
         display        : flex;
         flex-direction : column;
         justify-content: center;
@@ -57,10 +65,18 @@
             display         : flex;
             align-items     : center;
             justify-content : center;
+            font-size       : 1.2rem;
+            transition      : all 0.2s;
 
-            img {
-                width: 0.6rem;
+            &:hover {
+                background-color: v.$sepia-black;
+                color           : white;
+                cursor          : pointer;
             }
+        }
+
+        &__plus p {
+            margin-top: 0.1rem;
         }
 
         &__input {
@@ -84,6 +100,30 @@
             font-family     : v.$tinos-font;
             font-size       : 1rem;
             margin-left     : 0.5rem;
+
+            &:hover {
+                background-color: v.$sepia-black;
+                color           : white;
+                cursor          : pointer;
+            }
         }
+    }
+}
+
+.c-vin__ctrls__add[bounce='1'] {
+    animation: bounce 0.3s 1;
+}
+
+@keyframes bounce {
+    25% {
+        transform: scale(0.9);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }

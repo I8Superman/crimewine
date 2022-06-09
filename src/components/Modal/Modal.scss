@@ -1,0 +1,167 @@
+@use '../../global-styles/forwarder.scss'as v;
+
+.c-modal {
+    position        : fixed;
+    top             : 0px;
+    left            : 0px;
+    width           : 100vw;
+    height          : 100vh;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index         : 5;
+
+    &__container {
+        position                   : relative;
+        box-shadow                 : 0px 4px 16px 5px rgba(99, 99, 99, 0.7);
+        width                      : 50rem;
+        height                     : 25rem;
+        background-color           : white;
+        display                    : grid;
+        grid-template-columns      : 8rem 17rem 17rem;
+        gap                        : 2rem;
+        padding                    : 2rem;
+        // pointer-events          : none;
+        // z-index              : 10;
+
+        &__close-button {
+            position        : absolute;
+            width           : 3rem;
+            height          : 3rem;
+            border-radius   : 50%;
+            background-color: white;
+            box-shadow      : 0px 3px 0.5rem -1px rgba(99, 99, 99, 0.5);
+            right           : -1rem;
+            top             : -1.5rem;
+            display         : flex;
+            justify-content : center;
+            align-items     : center;
+            cursor          : pointer;
+
+            &__img {
+                width         : 1.5rem;
+                pointer-events: none;
+            }
+        }
+
+        &__image {
+            height: 100%;
+        }
+
+        &__description {
+            display       : flex;
+            flex-direction: column;
+
+            &__name {
+                @include v.h3-styled;
+                margin-bottom: 1rem;
+            }
+
+            &__text {
+                font-family: v.$tinos-font;
+                line-height: 1.3rem;
+            }
+
+            &__price {
+                margin-top   : auto;
+                margin-bottom: 0.25rem;
+                font-size    : 1.3rem;
+            }
+        }
+
+        &__data {
+            font-family   : v.$tinos-font;
+            display       : flex;
+            flex-direction: column;
+
+            &__line {
+                margin-bottom: 1rem;
+            }
+
+            &__ctrls {
+                margin-top           : auto;
+                display              : grid;
+                grid-template-columns: 2rem 2fr 2rem 5fr;
+
+                &__minus,
+                &__plus {
+                    border          : 1px v.$sepia-black solid;
+                    background-color: white;
+                    width           : 2rem;
+                    height          : 2rem;
+                    display         : flex;
+                    align-items     : center;
+                    justify-content : center;
+                    font-size       : 1.2rem;
+                    transition      : all 0.2s;
+
+                    &:hover {
+                        background-color: v.$sepia-black;
+                        color           : white;
+                        cursor          : pointer;
+                    }
+                }
+
+                &__plus p {
+                    margin-top: 0.1rem;
+                }
+
+                &__input {
+                    border       : none;
+                    width        : 100%;
+                    border-top   : 1px v.$sepia-black solid;
+                    border-bottom: 1px v.$sepia-black solid;
+                    text-align   : center;
+                    font-family  : v.$tinos-font;
+                    font-size    : 1rem;
+
+                    &:focus {
+                        outline: transparent;
+                    }
+                }
+
+                &__add {
+                    border          : 1px v.$sepia-black solid;
+                    background-color: white;
+                    height          : 2rem;
+                    font-family     : v.$tinos-font;
+                    font-size       : 1rem;
+                    margin-left     : 0.5rem;
+
+                    &:hover {
+                        background-color: v.$sepia-black;
+                        color           : white;
+                        cursor          : pointer;
+                    }
+                }
+
+                &__price {
+                    margin-top   : auto;
+                    margin-bottom: 0.25rem;
+                    font-size    : 1.3rem;
+                    text-align   : right;
+                }
+            }
+        }
+
+    }
+}
+
+.c-modal__container__data__ctrls__add[bounce='1'] {
+    animation: bounce 0.3s 1;
+}
+
+@keyframes bounce {
+    25% {
+        transform: scale(0.9);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

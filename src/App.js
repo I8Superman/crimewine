@@ -1,24 +1,43 @@
 import './App.scss';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import BasketIcon from './components/BasketIcon/BasketIcon';
+import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home';
 import KigForbi from './components/KigForbi/KigForbi';
 import Kontakt from './components/Kontakt/Kontakt';
+import Betaling from './components/Kurv/Betaling';
+import Forsendelse from './components/Kurv/Forsendelse';
 import Kurv from './components/Kurv/Kurv';
+import Oversigt from './components/Kurv/Oversigt'
 import Logo from './components/Logo/Logo';
 import Nyheder from './components/Nyheder/Nyheder';
 import Om from './components/Om/Om';
 import SideNav from './components/SideNav/SideNav';
 import Vine from './components/Vine/Vine';
 import { BasketContext } from './contexts/BasketContext';
+// import { OrderContext } from './contexts/OrderContext';
+// import { ModalContext } from './contexts/ModalContext';
 
 function App() {
 
-  const [basket, setBasket] = useState([]);
+  const [basket, setBasket] = useState(() => {
+    const savedBasket = sessionStorage.getItem("basket");
+    const initialValue = JSON.parse(savedBasket);
+    return initialValue || [];
+  });
+
+  // const [order, setOrder] = useState(() => {
+  //   const savedOrder = sessionStorage.getItem("order");
+  //   const initialValue = JSON.parse(savedOrder);
+  //   return initialValue || [];
+  // })
+
+
+  // const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
     type: {
       alle: true,
@@ -42,15 +61,28 @@ function App() {
     sortDir: 'asc'
   });
 
+  useEffect(() => {
+    // storing input name
+    sessionStorage.setItem("basket", JSON.stringify(basket));
+  }, [basket]);
+
+  // useEffect(() => {
+  //   // storing input name
+  //   sessionStorage.setItem("order", JSON.stringify(order));
+  // }, [order]);
+
   function addToBasket(qty, data) { // Passed as props to Vine and Vin components
     const alreadyInBasket = basket.findIndex((wine) => wine.id === data.id);
-    if (alreadyInBasket === -1) {
+    if (alreadyInBasket === -1) { // If wine NOT in basket, add it and its qty
       const addedItem = {
         ...data,
         qty: qty
-      }
-      setBasket(prevState => [...prevState, addedItem])
-    } else {
+      };
+      setBasket(prevState => [...prevState, addedItem]);
+    } else if (qty === 0) { // If new qty is 0 filter basket and remove wine 
+      const updatedBasket = basket.filter(wine => wine.id !== data.id);
+      setBasket(updatedBasket);
+    } else { // If wine already in basket, update the wine obj qty
       const updatedBasket = basket.map((wine) => {
         if (wine.id === data.id) {
           wine.qty += qty;
@@ -65,7 +97,7 @@ function App() {
   function toggleFilter(e) {
     let key = e.target.dataset.key;
     let subkey = e.target.dataset.subkey;
-    console.log('key = ' + key, 'subkey = ' + subkey)
+    // console.log('key = ' + key, 'subkey = ' + subkey)
     // Handles the sorting values of the filters obj
     if (key === 'sort') {
       console.log('Were sorting things out!')
@@ -130,10 +162,11 @@ function App() {
 
   return (
     <div className="c-app">
-      <BasketContext.Provider value={{ basket, setBasket }}>
+      <BasketContext.Provider value={{ basket, setBasket, addToBasket }}>
         <SideNav toggleFilter={toggleFilter} filters={filters} />
         <Logo />
-        <BasketIcon />
+        {basket.length !== 0 && <BasketIcon />}
+        {/* <ModalContext.Provider value={{ showModal, setShowModal }}> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nyheder" element={<Nyheder />} />
@@ -141,10 +174,16 @@ function App() {
           <Route path="/om" element={<Om />} />
           <Route path="/kontakt" element={<Kontakt />} />
           <Route path="/kig-forbi" element={<KigForbi />} />
-          <Route path="/kurv" element={<Kurv />} />
+          <Route path="/kurv" element={<Kurv addToBasketFunc={addToBasket} />}>
+            <Route index element={<Oversigt addToBasketFunc={addToBasket} />} />
+            <Route path="forsendelse" element={<Forsendelse />} />
+            <Route path="betaling" element={<Betaling />} />
+          </Route>
         </Routes>
+        {/* </ModalContext.Provider> */}
+        <Footer />
       </BasketContext.Provider>
-    </div>
+    </div >
   );
 }
 

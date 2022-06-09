@@ -2,9 +2,13 @@
 
 .c-vare {
     display              : grid;
-    grid-template-columns: 8% 20% 10% 17% 15% 15% 15%;
+    grid-template-columns: 4% 8% 24% 10% 15% 17% 11% 11%;
     height               : 6rem;
     font-family          : v.$tinos-font;
+
+    &:hover {
+        box-shadow: 0px 1px 0.5rem -1px rgba(99, 99, 99, 0.5);
+    }
 
     .o-col {
         // border         : 1px pink solid;
@@ -14,28 +18,44 @@
         justify-content: center;
 
         &:nth-child(1) {
-            padding-left: 2rem;
+            padding-left: 1rem;
         }
 
-        &:nth-child(4) {
-            // text-align: right;
-        }
+        // &:nth-child(4) {
+        //     // text-align: right;
+        // }
 
-        &:nth-child(6) {
-            text-align: right;
-        }
+        // &:nth-child(6) {
+        //     text-align: right;
+        // }
 
-        &:nth-child(7) {
-            text-align: right;
+        // &:nth-child(7) {
+        //     text-align: right;
+        // }
+
+        // &:last-child {
+        //     text-align: right;
+        // }
+    }
+
+    &__remove {
+        img {
+            width : 0.8rem;
+            cursor: pointer;
         }
     }
 
-    &__bottle__img {
-        width: 1.8rem;
+    &__bottle {
+        align-items: center;
+
+        &__img {
+            width: 1.8rem;
+        }
     }
 
     &__info {
-        line-height: 1.3rem;
+        font-size  : 0.9rem;
+        line-height: 1.1rem;
 
         &__data,
         &__type {

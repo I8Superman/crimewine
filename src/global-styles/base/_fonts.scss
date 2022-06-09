@@ -1,3 +1,4 @@
+@use './colors.scss'as c;
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
@@ -18,3 +19,48 @@ $fanzine-font: Fanzine,
 sans-serif;
 $tinos-font: Tinos,
 sans-serif;
+
+@mixin h1-styled {
+    margin-top   : 6rem;
+    margin-bottom: 4rem;
+
+    span {
+        font-family     : $tinos-font;
+        font-size       : 2rem;
+        color           : c.$white-bg;
+        background-color: c.$sepia-black;
+        padding         : 0.125rem 1rem 0.125rem 1rem;
+    }
+}
+
+@mixin h2-styled {
+    span {
+        font-family     : $tinos-font;
+        font-size       : 1.3rem;
+        color           : c.$white-bg;
+        background-color: c.$sepia-black;
+        padding         : 0.125rem 1rem 0.125rem 1rem;
+    }
+}
+
+@mixin h3-styled {
+    span {
+        font-family     : $tinos-font;
+        font-size       : 1.2rem;
+        color           : c.$white-bg;
+        background-color: c.$sepia-black;
+        padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
+    }
+}
+
+@mixin paragraph {
+    font-family: $tinos-font;
+    font-size  : 1rem;
+    line-height: 1.3rem;
+
+    span {
+        color           : c.$white-bg;
+        background-color: c.$sepia-black;
+        padding         : 0.125rem 0.5rem 0.125rem 0.5rem;
+    }
+}

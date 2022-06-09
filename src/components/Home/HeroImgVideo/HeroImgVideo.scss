@@ -1,3 +1,5 @@
+@use '../../../global-styles/forwarder.scss'as v;
+
 .o-background-video__container {
     height  : 100vh;
     overflow: hidden;
