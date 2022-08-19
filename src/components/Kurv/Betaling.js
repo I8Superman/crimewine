@@ -1,4 +1,4 @@
-import './Forsendelse.scss';
+import './Betaling.scss';
 
 import { useRef, useState } from 'react';
 
@@ -65,7 +65,6 @@ export default function Betaling(props) {
                 }
             }
         })
-
     }
 
     function handleSubmit(e) {
@@ -74,22 +73,51 @@ export default function Betaling(props) {
         alert(JSON.stringify(shippingFormData));
     }
 
-    console.log('rendered')
-
     return (
-        <div className="c-shipping">
-            <div className="c-shipping__breadcrumbs-and-order-btn">
-                <div className="c-shipping__breadcrumbs">
-                    <p className='c-shipping__breadcrumbs__indkøbskurv'>Indkøbskurv</p>
-                    <p className='c-shipping__breadcrumbs__information'>{'> Information og forsendelse'}</p>
-                    <p className='c-shipping__breadcrumbs__betal'>{'> Godkend og betal'}</p>
+        <div className="c-payment">
+            <div className="c-payment__breadcrumbs-and-order-btn">
+                <div className="c-payment__breadcrumbs">
+                    <p className='c-payment__breadcrumbs__indkøbskurv'>Indkøbskurv</p>
+                    <p className='c-payment__breadcrumbs__information'>{'> Information og forsendelse'}</p>
+                    <p className='c-payment__breadcrumbs__betal'>{'> Godkend og betal'}</p>
                 </div>
-                <button type="submit" className='c-shipping__breadcrumbs__submit-button-top'>Til betaling</button>
+                <button type="submit" className='c-payment__breadcrumbs__submit-button-top'>Til betaling</button>
             </div>
 
             <form onSubmit={handleSubmit}>
+                <fieldset className="payment-options">
+                    <h4 className='payment-options__header'>Betaling</h4>
+                    <label className='payment-option' >
+                        <input className='radio-button' id='radio' type="radio" name="payment-option-select" />
+                        <div className="option-text">
+                            <h4 className='option-title'>GLS Levering til dør</h4>
+                            <p className='option-notes'>Så er du fri for at skulle ud af døren!</p>
+                        </div>
+                        <p className='payment-cost'>59,00 DKK</p>
+                    </label>
+                    <label className='payment-option' >
+                        <input className='radio-button' id='radio' type="radio" name="payment-option-select" />
+                        <div className="option-text">
+                            <h4 className='option-title'>Afhentning i Valby</h4>
+                            <p className='option-notes'>Kom forbi i vores åbningstid eller ring/skriv og lav
+                                en aftale med os om afhentning.</p>
+                        </div>
+                        <p className='payment-cost'>0,00 DKK</p>
+                    </label>
+                    <label className='payment-option' >
+                        <input className='radio-button' id='radio' type="radio" name="payment-option-select" />
+                        <div className="option-text">
+                            <h4 className='option-title'>Særlig aftale</h4>
+                            <p className='option-notes'>I særlige tilfælde bringer vi selv din vin ud. Fx til ældre
+                                og gangbesværede, eller hvis du står og skal bruge nogle
+                                flasker akut til et arrangement. Ring eller skriv og hør os ad.</p>
+                        </div>
+                        <p className='payment-cost'>0,00 DKK</p>
+                    </label>
+                    <button type="submit" className='payment-options__submit-button-bottom'>Til betaling</button>
+                </fieldset>
                 <fieldset className="customer-info">
-                    <h3 className='customer-info__header'>Adresseoplysninger</h3>
+                    <h3 className='customer-info__header'>Ordreoversigt</h3>
                     <div className={'input-container select-container full-width'}>
                         <label htmlFor="customerType">Kundetype</label>
                         <select className={'form-input select-input'} name="customertype" id="customerType" >
@@ -142,79 +170,6 @@ export default function Betaling(props) {
                         <label htmlFor="notes">Noter</label>
                         <textarea className={'form-input'} name="notes" id='notes' placeholder="&nbsp;" />
                     </div>
-                </fieldset>
-                <fieldset className="shipping-options">
-                    <h3 className='shipping-options__header'>Forsendelse</h3>
-                    <label className='shipping-option' >
-                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
-                        <div className="option-text">
-                            <h3 className='option-title'>GLS Pakkeshop</h3>
-                            <p className='option-notes'>Levering til GLS pakkeshop i nærheden af din adresse</p>
-                            <div className="pickup-options">
-                                <p className='pickup-name'><b>{shippingFormData.shippingOption.optionalPickup.place}</b></p>
-                                <p className='pickup-adress'>{shippingFormData.shippingOption.optionalPickup.address}</p>
-                                <div className="dropdown">
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Slikland Valby</p>
-                                        <p className='pickup-adress'>Toftegårds Allé 9a, 2500 Valby</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Superkiosken Vesterbro</p>
-                                        <p className='pickup-adress'>Vesterbrogade 77, 1600 Vesterbro</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Kiosk 44 Valby</p>
-                                        <p className='pickup-adress'>Valby Langgade 44, 2500 Valby</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Badutspring Børne-gear</p>
-                                        <p className='pickup-adress'>Vigerslev Allé 31, 2500 Valby</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>HentNu Pakkeshop</p>
-                                        <p className='pickup-adress'>Ålekistevej 134, 2700 Vanløse</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Rak & Pak </p>
-                                        <p className='pickup-adress'>Kistegade 45, 1666 Vesterbro</p>
-                                    </div>
-                                    <div className="pickup-option" onClick={e => changePickup(e)}>
-                                        <p className='pickup-name'>Postnord Posthus</p>
-                                        <p className='pickup-adress'>Superbrugsen i Spinderiet, Torvet 3, 2500 Valby</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p className='shipping-cost'>39,00 DKK</p>
-                    </label>
-                    <label className='shipping-option' >
-                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
-                        <div className="option-text">
-                            <h3 className='option-title'>GLS Levering til dør</h3>
-                            <p className='option-notes'>Så er du fri for at skulle ud af døren!</p>
-                        </div>
-                        <p className='shipping-cost'>59,00 DKK</p>
-                    </label>
-                    <label className='shipping-option' >
-                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
-                        <div className="option-text">
-                            <h3 className='option-title'>Afhentning i Valby</h3>
-                            <p className='option-notes'>Kom forbi i vores åbningstid eller ring/skriv og lav
-                                en aftale med os om afhentning.</p>
-                        </div>
-                        <p className='shipping-cost'>0,00 DKK</p>
-                    </label>
-                    <label className='shipping-option' >
-                        <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
-                        <div className="option-text">
-                            <h3 className='option-title'>Særlig aftale</h3>
-                            <p className='option-notes'>I særlige tilfælde bringer vi selv din vin ud. Fx til ældre
-                                og gangbesværede, eller hvis du står og skal bruge nogle
-                                flasker akut til et arrangement. Ring eller skriv og hør os ad.</p>
-                        </div>
-                        <p className='shipping-cost'>0,00 DKK</p>
-                    </label>
-                    <button type="submit" className='shipping-options__submit-button-bottom'>Til betaling</button>
                 </fieldset>
             </form>
 

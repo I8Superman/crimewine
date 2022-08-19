@@ -137,7 +137,7 @@ export default function Forsendelse(props) {
                     <label className='shipping-option' >
                         <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
                         <div className="option-text">
-                            <h3 className='option-title'>GLS Pakkeshop</h3>
+                            <h4 className='option-title'>GLS Pakkeshop</h4>
                             <p className='option-notes'>Levering til GLS pakkeshop i nærheden af din adresse</p>
                             <div className="pickup-options">
                                 <p className='pickup-name'><b>{order.shippingOption.optionalPickup.place}</b></p>
@@ -179,7 +179,7 @@ export default function Forsendelse(props) {
                     <label className='shipping-option' >
                         <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
                         <div className="option-text">
-                            <h3 className='option-title'>GLS Levering til dør</h3>
+                            <h4 className='option-title'>GLS Levering til dør</h4>
                             <p className='option-notes'>Så er du fri for at skulle ud af døren!</p>
                         </div>
                         <p className='shipping-cost'>59,00 DKK</p>
@@ -187,7 +187,7 @@ export default function Forsendelse(props) {
                     <label className='shipping-option' >
                         <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
                         <div className="option-text">
-                            <h3 className='option-title'>Afhentning i Valby</h3>
+                            <h4 className='option-title'>Afhentning i Valby</h4>
                             <p className='option-notes'>Kom forbi i vores åbningstid eller ring/skriv og lav
                                 en aftale med os om afhentning.</p>
                         </div>
@@ -196,7 +196,7 @@ export default function Forsendelse(props) {
                     <label className='shipping-option' >
                         <input className='radio-button' id='radio' type="radio" name="shipping-option-select" />
                         <div className="option-text">
-                            <h3 className='option-title'>Særlig aftale</h3>
+                            <h4 className='option-title'>Særlig aftale</h4>
                             <p className='option-notes'>I særlige tilfælde bringer vi selv din vin ud. Fx til ældre
                                 og gangbesværede, eller hvis du står og skal bruge nogle
                                 flasker akut til et arrangement. Ring eller skriv og hør os ad.</p>

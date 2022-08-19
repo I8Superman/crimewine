@@ -17,13 +17,18 @@
         display        : flex;
         justify-content: space-between;
         align-items    : center;
+
+        &__link {
+            cursor: pointer;
+        }
     }
-    
+
+
     &__breadcrumbs {
         display    : flex;
         font-family: v.$tinos-font;
         color      : v.$dark-grey;
-    
+
         p {
             margin-right: 0.5rem;
         }
@@ -37,7 +42,7 @@
         display              : grid;
         grid-template-columns: 14% 22% 10% 15% 17% 11% 11%;
         margin-bottom        : 1rem;
-    
+
         .c-oversigt__header {
             font-family    : v.$tinos-font;
             font-size      : 1rem;
@@ -45,19 +50,19 @@
             display        : flex;
             flex-direction : column;
             justify-content: center;
-    
+
             &:nth-child(1) {
                 padding-left: 1rem;
                 grid-column : 1 / 3;
             }
-    
+
             // &:last-child {
             //     padding-right: 1rem;
             //     text-align   : right;
             // }
         }
     }
-    
+
     &__vare-container {
         border        : 1px black solid;
         grid-column   : 4 / 13;
@@ -65,13 +70,13 @@
         grid-row      : 4 / 5;
         overflow-y    : scroll;
     }
-    
+
     &__summary {
         grid-column: 9 /13;
         grid-row   : 5;
         font-family: v.$tinos-font;
         font-size  : 1rem;
-    
+
         &__amount,
         &__tax,
         &__total,
@@ -82,16 +87,16 @@
             padding        : 0.5rem;
             border-bottom  : 1px black solid;
         }
-    
+
         &__ordering {
             padding-right: 0;
             border       : none;
         }
-    
+
         &__ordering__accept {
             display    : flex;
             align-items: center;
-    
+
             img {
                 height     : 1rem;
                 margin-left: 0.5rem;
@@ -111,4 +116,5 @@
     font-size          : 1rem;
     background-color   : v.$sepia-black;
     padding            : 0.5rem 1rem 0.5rem 1rem;
+    cursor             : pointer;
 }

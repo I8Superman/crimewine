@@ -1,6 +1,7 @@
 import './Oversigt.scss';
 
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import dankort from '../../assets/images/payment-logos/logo-dankort.png';
 import mastercard from '../../assets/images/payment-logos/logo-mastercard.png';
@@ -40,7 +41,9 @@ export default function Oversigt(props) {
                     <p className='c-oversigt__breadcrumbs__information'>{'> Information og forsendelse'}</p>
                     <p className='c-oversigt__breadcrumbs__betal'>{'> Godkend og betal'}</p>
                 </div>
-                <button className='c-oversigt__summary__ordering__go-to__top order-button'>Til bestilling</button>
+                <Link className='c-oversigt__breadcrumbs-and-order-btn__link' to="/kurv/forsendelse">
+                    <button className='c-oversigt__summary__ordering__go-to__top order-button'>Til bestilling</button>
+                </Link>
             </div>
             <div className='c-oversigt__headers'>
                 <div className="c-oversigt__header">Varer</div>
@@ -74,9 +77,11 @@ export default function Oversigt(props) {
                         <img className='c-oversigt__summary__ordering__accept__payment-logo' src={mastercard} alt="" />
                         <img className='c-oversigt__summary__ordering__accept__payment-logo' src={mobilePay} alt="" />
                     </div>
-                    <button className='c-oversigt__summary__ordering__go-to order-button'>Til bestilling</button>
+                    <Link className='c-oversigt__breadcrumbs-and-order-btn__link' to="/kurv/forsendelse">
+                        <button className='c-oversigt__summary__ordering__go-to order-button'>Til bestilling</button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
