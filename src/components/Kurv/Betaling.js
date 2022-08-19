@@ -50,22 +50,22 @@ export default function Betaling(props) {
         });
     }
 
-    function changePickup(e) {
-        e.stopPropagation();
-        const place = e.currentTarget.children[0].textContent;
-        const address = e.currentTarget.children[1].textContent;
-        setShippingFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                shippingOption: {
-                    optionalPickup: {
-                        place: place,
-                        address: address
-                    }
-                }
-            }
-        })
-    }
+    // function changePickup(e) {
+    //     e.stopPropagation();
+    //     const place = e.currentTarget.children[0].textContent;
+    //     const address = e.currentTarget.children[1].textContent;
+    //     setShippingFormData(prevFormData => {
+    //         return {
+    //             ...prevFormData,
+    //             shippingOption: {
+    //                 optionalPickup: {
+    //                     place: place,
+    //                     address: address
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }
 
     function handleSubmit(e) {
         e.preventDefault();
